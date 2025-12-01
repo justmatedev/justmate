@@ -1,36 +1,46 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# JustMate - Portfolio
 
-## Getting Started
+Bem-vindo ao repositório do **JustMate**, o portfólio pessoal de Mateus Justino. Este projeto foi desenvolvido para apresentar minhas habilidades, projetos e trajetória como desenvolvedor JavaScript, com foco em React, React Native e tecnologias modernas da web.
 
-First, run the development server:
+## 🚀 Tecnologias Utilizadas
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
+Este projeto foi construído utilizando as tecnologias mais recentes e performáticas do ecossistema JavaScript:
+
+- **[Next.js 15+](https://nextjs.org/)**: Framework React para produção, utilizando o App Router para roteamento e otimização.
+- **[Tailwind CSS v4](https://tailwindcss.com/)**: Framework de utilitários CSS para estilização rápida, responsiva e moderna.
+- **[TypeScript](https://www.typescriptlang.org/)**: Superset do JavaScript que adiciona tipagem estática para maior segurança e escalabilidade do código.
+- **[React Icons](https://react-icons.github.io/react-icons/)**: Biblioteca de ícones populares para React.
+- **SVGs Personalizados**: Ícones de tecnologias otimizados e consistentes visualmente.
+
+## 📂 Estrutura do Projeto
+
+A organização de pastas segue as melhores práticas para projetos Next.js escaláveis:
+
+```
+src/
+├── app/              # Rotas, layouts e estilos globais (App Router)
+│   ├── globals.css   # Estilos globais e configuração do Tailwind
+│   ├── layout.tsx    # Layout raiz da aplicação
+│   └── page.tsx      # Página inicial (Home)
+├── components/       # Componentes reutilizáveis da UI
+│   ├── Header.tsx    # Cabeçalho com navegação responsiva
+│   ├── Hero.tsx      # Seção de apresentação principal
+│   ├── TechStack.tsx # Exibição das tecnologias (com SVGs)
+│   ├── Projects.tsx  # Galeria de projetos com mockups
+│   └── Footer.tsx    # Rodapé com links sociais
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+- **`public/`**: Arquivos estáticos como imagens, SVGs (`/tech`) e ícones.
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+## ✨ Funcionalidades e Destaques
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+- **Design Premium e Minimalista**: Interface limpa com foco na experiência do usuário, utilizando uma paleta de cores escura e elegante (`#131313`, `#ffe15a`).
+- **Responsividade Total**: Layout adaptável para dispositivos móveis, tablets e desktops.
+- **Dark Mode Permanente**: Estilização focada em um tema escuro confortável e moderno.
+- **Tech Stack Visual**: Seção interativa que apresenta as tecnologias dominadas utilizando ícones SVG oficiais.
+- **Galeria de Projetos**: Apresentação detalhada de projetos com mockups de alta qualidade.
+- **Tipografia Personalizada**: Uso da fonte `Google Sans Code` para uma identidade visual única e técnica.
 
-## Learn More
+## 📝 Licença
 
-To learn more about Next.js, take a look at the following resources:
-
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
-
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
-
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+Este projeto é de uso pessoal para portfólio. Sinta-se à vontade para se inspirar!
