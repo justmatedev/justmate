@@ -62,10 +62,15 @@ const Projects = () => {
   ]
 
   return (
-    <section id="projects" className="py-20">
+    <section id="projects" aria-labelledby="projects-heading" className="py-20">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="text-center mb-16">
-          <h2 className="text-3xl md:text-4xl font-bold mb-4">Projetos</h2>
+          <h2
+            id="projects-heading"
+            className="text-3xl md:text-4xl font-bold mb-4"
+          >
+            Projetos
+          </h2>
           <p className="text-gray-400">
             Alguns dos trabalhos que desenvolvi recentemente.
           </p>
@@ -83,11 +88,11 @@ const Projects = () => {
                     {project.mockups.map((mockup, i) => (
                       <div
                         key={i}
-                        className={`relative rounded-xl overflow-hidden shadow-lg border border-gray-800 flex bg-gray-900/40 ${i === 1 ? "scale-110 z-10" : "scale-95 opacity-80 hover:opacity-100 hover:scale-100 transition-all"}`}
+                        className={`relative rounded-xl overflow-hidden shadow-lg border border-(--color-border) flex bg-(--color-surface-1) hover:-translate-y-2 hover:border-primary/30 transition-all ${i === 1 ? "scale-110 z-10 hover:z-20" : "scale-95 opacity-80 hover:opacity-100 hover:scale-100"}`}
                       >
                         <Image
                           src={mockup}
-                          alt={`${project.title} mockup ${i + 1}`}
+                          alt={`Capturas de tela detalhadas do projeto ${project.title} - Visualização ${i + 1}`}
                           width={1080}
                           height={1920}
                           className="w-full h-auto object-cover"
@@ -98,12 +103,12 @@ const Projects = () => {
                 ) : (
                   <div
                     className={
-                      "rounded-xl overflow-hidden shadow-lg border border-gray-800 flex bg-gray-900/40"
+                      "rounded-xl overflow-hidden shadow-[0_40px_100px_-20px_rgba(0,0,0,1)] border border-(--color-border) flex bg-(--color-surface-1) hover:-translate-y-2 hover:border-primary/30 transition-all group"
                     }
                   >
                     <Image
                       src={project.mockups[0]}
-                      alt={`${project.title} mockup`}
+                      alt={`Apresentação visual da interface do projeto ${project.title}`}
                       width={1920}
                       height={1080}
                       className="w-full h-auto object-cover group-hover:scale-105 transition-transform duration-500"
@@ -117,7 +122,7 @@ const Projects = () => {
                   <div className="w-20 h-20 rounded-xl flex items-center justify-center text-xs font-bold overflow-hidden relative">
                     <Image
                       src={project.logo}
-                      alt={`${project.title} logo`}
+                      alt={`Logotipo oficial do projeto independente ${project.title}`}
                       fill
                       className="object-contain"
                     />
@@ -134,7 +139,7 @@ const Projects = () => {
                   {project.tags.map((tag) => (
                     <span
                       key={tag}
-                      className="px-3 py-1 bg-gray-800 rounded-full text-xs font-medium text-gray-300 border border-gray-700"
+                      className="px-3 py-1 bg-(--color-surface-2) border border-(--color-border) rounded-full text-xs font-medium text-gray-300 shadow-sm"
                     >
                       #{tag}
                     </span>

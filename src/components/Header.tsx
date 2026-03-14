@@ -17,15 +17,15 @@ const Header = () => {
   ]
 
   return (
-    <header className="fixed top-0 left-0 right-0 z-50 bg-black/80 backdrop-blur-md border-b border-gray-800">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="flex items-center justify-between h-16">
+    <header className="fixed top-4 left-4 right-4 z-50 max-w-7xl mx-auto rounded-2xl bg-background border border-(--color-border) transition-all duration-300">
+      <div className="px-4 sm:px-6 lg:px-8">
+        <div className="flex items-center justify-between h-14">
           <div className="shrink-0 flex items-center gap-2">
             <Link href="/" className="flex items-center gap-2 group">
               <div className="relative w-8 h-8">
                 <Image
                   src="/icon.svg"
-                  alt="JustMate Logo"
+                  alt="JustMate - Mateus Justino Logotipo principal"
                   fill
                   className="object-contain"
                 />
@@ -65,14 +65,14 @@ const Header = () => {
 
       {/* Mobile Menu */}
       {isOpen && (
-        <div className="md:hidden bg-black border-b border-gray-800">
+        <div className="md:hidden bg-background rounded-2xl mt-2 mx-4 border border-(--color-border) overflow-hidden shadow-2xl relative z-40">
           <div className="px-2 pt-2 pb-3 space-y-1 sm:px-3">
             {navItems.map((item) => (
               <Link
                 key={item.name}
                 href={item.href}
                 onClick={() => setIsOpen(false)}
-                className="block px-3 py-2 rounded-md text-base font-medium hover:bg-gray-800 hover:text-primary transition-colors capitalize"
+                className="block px-3 py-2 rounded-md text-base font-medium hover:bg-white/5 hover:text-primary transition-colors capitalize text-gray-300"
               >
                 {item.name}
               </Link>
