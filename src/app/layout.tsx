@@ -52,14 +52,6 @@ export const metadata: Metadata = {
     description:
       "Portfólio de Mateus Justino (JustMate). Especialista em soluções web e mobile modernas com ecossistema JavaScript.",
     siteName: "JustMate Portfolio",
-    images: [
-      {
-        url: "/icon.svg", // Absoluto via metadataBase
-        width: 800,
-        height: 600,
-        alt: "Logo JustMate",
-      },
-    ],
   },
   twitter: {
     card: "summary_large_image",
@@ -67,7 +59,6 @@ export const metadata: Metadata = {
     description:
       "Portfólio oficial. Transformando ideias em apps e sites de alta performance.",
     creator: "@justmate",
-    images: ["/icon.svg"], // Absoluto via metadataBase
   },
   alternates: {
     canonical: "https://justmate.vercel.app/",
