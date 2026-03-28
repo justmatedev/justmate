@@ -32,18 +32,24 @@ const Projects = () => {
       ],
     },
     {
-      title: "Thinkdo - Landing Page",
+      title: "Bonsare",
       description:
-        "Uma landing page moderna, estática e responsiva para o aplicativo Thinkdo. O site serve como a principal vitrine digital do app, apresentando seus recursos de forma clara e objetiva, com o objetivo principal de direcionar os usuários para o download na Google Play Store.",
-      tags: ["Next.js", "React", "TypeScript", "Tailwind CSS", "React-Icons"],
+        "Uma plataforma focada em transformar a identidade de marcas e criativos através de estratégias de soluções visuais e conteúdos únicos. O projeto destaca-se pelo design premium, tipografia expressiva e uma experiência de usuário imersiva com foco em excelência estratégica.",
+      tags: [
+        "Next.js",
+        "React",
+        "TypeScript",
+        "Tailwind CSS",
+        "Zustand",
+        "Lucide React",
+      ],
       links: {
-        website: "https://thinkdo.vercel.app/",
-        github: "https://github.com/justmatedev/thinkdo-webpage",
+        website: "https://bonsare.com.br",
       },
       type: "Web App",
       bgColor: "bg-gray-900",
-      logo: "/logo/thinkdoweb.svg",
-      mockups: ["/mockup/thinkdoweb.png"],
+      logo: "/logo/bonsare.svg",
+      mockups: ["/mockup/bonsare.png"],
     },
     {
       title: "Zine",
