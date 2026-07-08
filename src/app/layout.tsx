@@ -7,6 +7,7 @@ const googleSansCode = localFont({
   variable: "--font-google-sans-code",
   display: "swap",
   weight: "300 800",
+  preload: true,
   fallback: ["ui-monospace", "SFMono-Regular", "Menlo", "monospace"],
   adjustFontFallback: "Arial",
 })

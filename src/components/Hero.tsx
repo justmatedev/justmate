@@ -1,4 +1,3 @@
-import Image from "next/image"
 import Link from "next/link"
 
 const Hero = () => {
@@ -9,14 +8,13 @@ const Hero = () => {
       className="section-glow relative flex min-h-[100svh] items-center justify-center px-4 pb-16 pt-28 sm:px-6 md:pb-24 md:pt-32 lg:px-8"
     >
       <div className="mx-auto flex max-w-3xl flex-col items-center text-center">
-        <div className="hero-logo-enter mb-6 md:mb-8">
-          <Image
+        <div className="mb-6 md:mb-8">
+          <img
             src="/icon.svg"
             alt=""
             width={220}
             height={332}
-            className="hero-logo-breathe h-auto w-40 object-contain sm:w-48 md:w-56"
-            priority
+            className="h-auto w-40 object-contain sm:w-48 md:w-56"
           />
         </div>
 
