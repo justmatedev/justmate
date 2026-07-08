@@ -10,9 +10,9 @@ const Header = () => {
 
   const navItems = [
     { name: "Início", href: "#home" },
+    { name: "Projetos", href: "#projects" },
     { name: "Sobre", href: "#about" },
     { name: "Tecnologias", href: "#tech" },
-    { name: "Projetos", href: "#projects" },
     { name: "Contato", href: "#contact" },
   ]
 
@@ -37,7 +37,7 @@ const Header = () => {
           </div>
 
           {/* Desktop Menu */}
-          <div className="hidden md:block">
+          <nav className="hidden md:block" aria-label="Navegação principal">
             <div className="ml-10 flex items-baseline space-x-8">
               {navItems.map((item) => (
                 <Link
@@ -49,15 +49,19 @@ const Header = () => {
                 </Link>
               ))}
             </div>
-          </div>
+          </nav>
 
           {/* Mobile Menu Button */}
           <div className="md:hidden">
             <button
+              type="button"
               onClick={() => setIsOpen(!isOpen)}
               className="p-2 rounded-md hover:bg-gray-800 transition-colors"
+              aria-label={isOpen ? "Fechar menu" : "Abrir menu"}
+              aria-expanded={isOpen}
+              aria-controls="mobile-menu"
             >
-              {isOpen ? <HiX size={24} /> : <HiMenu size={24} />}
+              {isOpen ? <HiX size={24} aria-hidden /> : <HiMenu size={24} aria-hidden />}
             </button>
           </div>
         </div>
@@ -65,7 +69,11 @@ const Header = () => {
 
       {/* Mobile Menu */}
       {isOpen && (
-        <div className="md:hidden bg-background rounded-2xl mt-2 mx-4 border border-(--color-border) overflow-hidden shadow-2xl relative z-40">
+        <nav
+          id="mobile-menu"
+          className="md:hidden bg-background rounded-2xl mt-2 mx-4 border border-(--color-border) overflow-hidden shadow-2xl relative z-40"
+          aria-label="Navegação mobile"
+        >
           <div className="px-2 pt-2 pb-3 space-y-1 sm:px-3">
             {navItems.map((item) => (
               <Link
@@ -78,7 +86,7 @@ const Header = () => {
               </Link>
             ))}
           </div>
-        </div>
+        </nav>
       )}
     </header>
   )

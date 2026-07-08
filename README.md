@@ -6,7 +6,7 @@ Bem-vindo ao repositório do **JustMate**, o portfólio pessoal de Mateus Justin
 
 Este projeto foi construído utilizando as tecnologias mais recentes e performáticas do ecossistema JavaScript:
 
-- **[Next.js 15+](https://nextjs.org/)**: Framework React para produção, utilizando o App Router para roteamento e otimização.
+- **[Next.js 16](https://nextjs.org/)**: Framework React para produção, utilizando o App Router para roteamento e otimização.
 - **[Tailwind CSS v4](https://tailwindcss.com/)**: Framework de utilitários CSS para estilização rápida, responsiva e moderna.
 - **[TypeScript](https://www.typescriptlang.org/)**: Superset do JavaScript que adiciona tipagem estática para maior segurança e escalabilidade do código.
 - **[React Icons](https://react-icons.github.io/react-icons/)**: Biblioteca de ícones populares para React.

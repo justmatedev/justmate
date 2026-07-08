@@ -1,47 +1,51 @@
 import Image from "next/image"
+import Link from "next/link"
 
 const Hero = () => {
   return (
     <section
       id="home"
       aria-labelledby="hero-heading"
-      className="pt-32 pb-16 md:pt-48 md:pb-32 px-4 sm:px-6 lg:px-8 max-w-7xl mx-auto"
+      className="section-glow relative flex min-h-[100svh] items-center justify-center px-4 pb-16 pt-28 sm:px-6 md:pb-24 md:pt-32 lg:px-8"
     >
-      <div className="flex flex-col md:flex-row items-center justify-between gap-12">
-        <div className="flex-1 text-center md:text-left space-y-6">
+      <div className="mx-auto flex max-w-3xl flex-col items-center text-center">
+        <div className="hero-logo-enter mb-6 md:mb-8">
+          <Image
+            src="/icon.svg"
+            alt=""
+            width={220}
+            height={332}
+            className="hero-logo-breathe h-auto w-40 object-contain sm:w-48 md:w-56"
+            priority
+          />
+        </div>
+
+        <div className="animate-[fade-up_0.7s_ease-out_0.08s_both] space-y-4 md:space-y-5">
           <h1
             id="hero-heading"
-            className="text-5xl md:text-7xl font-bold tracking-tight text-white mb-2"
+            className="text-5xl font-bold tracking-tighter text-white sm:text-6xl md:text-7xl lg:text-8xl"
           >
             JustMate
           </h1>
-          <h2 className="text-3xl md:text-5xl font-extrabold text-transparent bg-clip-text bg-linear-to-r from-gray-200 via-gray-400 to-gray-600 mb-4 pb-2">
-            Desenvolvedor JavaScript
-          </h2>
-          <h3 className="text-xl md:text-2xl text-primary/90 font-semibold tracking-wide">
-            React Native & React
-          </h3>
-
-          <p className="text-lg text-gray-400/90 max-w-2xl leading-relaxed mt-6">
-            Olá! Sou Mateus Justino, o desenvolvedor por trás do JustMate. Minha
-            paixão é transformar ideias em experiências digitais limpas e
-            funcionais. Minha expertise é focada no ecossistema JavaScript,
-            utilizando ReactJS para construir interfaces web ricas e React
-            Native para criar aplicativos multiplataforma.
+          <p className="text-sm font-medium tracking-[0.18em] text-primary uppercase">
+            Mateus Justino
+          </p>
+          <p className="mx-auto max-w-xl text-lg leading-snug text-gray-200 sm:text-xl md:text-2xl">
+            Apps e interfaces que as pessoas usam de verdade
+          </p>
+          <p className="mx-auto max-w-lg text-base leading-relaxed text-gray-400">
+            Desenvolvimento JavaScript com React Native e React — do app na Play
+            Store ao site com identidade forte.
           </p>
         </div>
 
-        <div className="flex-1 flex justify-center md:justify-end">
-          <div className="relative w-72 h-72 md:w-96 md:h-96 rounded-full bg-(--color-surface-1) border border-(--color-border) shadow-[0_30px_60px_-15px_rgba(0,0,0,0.5)] hover:-translate-y-2 hover:border-primary/50 transition-all duration-500 overflow-hidden flex items-center justify-center group p-8">
-            <Image
-              src="/icon.svg"
-              alt="Logotipo em formato de rosto minimalista do JustMate - Mateus Justino, Desenvolvedor JavaScript"
-              width={150}
-              height={150}
-              className="object-cover"
-              priority
-            />
-          </div>
+        <div className="mt-8 flex w-full max-w-md flex-col items-center gap-4 sm:max-w-none sm:flex-row sm:justify-center animate-[fade-up_0.7s_ease-out_0.2s_both]">
+          <Link href="#projects" className="btn-primary w-full sm:w-auto">
+            Ver projetos
+          </Link>
+          <Link href="#contact" className="btn-secondary w-full sm:w-auto">
+            Falar comigo
+          </Link>
         </div>
       </div>
     </section>

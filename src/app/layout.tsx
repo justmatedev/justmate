@@ -1,11 +1,14 @@
 import type { Metadata } from "next"
-import { Google_Sans_Code } from "next/font/google"
+import localFont from "next/font/local"
 import "./globals.css"
 
-const googleSansCode = Google_Sans_Code({
+const googleSansCode = localFont({
+  src: "../fonts/GoogleSansCode-Variable.ttf",
   variable: "--font-google-sans-code",
-  subsets: ["latin"],
-  adjustFontFallback: false,
+  display: "swap",
+  weight: "300 800",
+  fallback: ["ui-monospace", "SFMono-Regular", "Menlo", "monospace"],
+  adjustFontFallback: "Arial",
 })
 
 export const metadata: Metadata = {

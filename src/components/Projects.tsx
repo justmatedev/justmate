@@ -2,169 +2,186 @@ import { SiGithub, SiGoogleplay } from "react-icons/si"
 import { FiExternalLink } from "react-icons/fi"
 import Image from "next/image"
 
+type Project = {
+  title: string
+  type: string
+  logo: string
+  mockups: string[]
+  tags: string[]
+  problem: string
+  solution: string
+  result: string
+  links: {
+    googlePlay?: string
+    website?: string
+    github?: string
+  }
+}
+
 const Projects = () => {
-  const projects = [
+  const projects: Project[] = [
     {
       title: "Thinkdo",
-      description:
-        "Um aplicativo mobile de anotações focado em simplicidade e performance. O objetivo é oferecer uma experiência de captura de ideias livre de distrações, garantindo que os dados do usuário estejam sempre seguros, sincronizados com a nuvem e disponíveis até mesmo offline.",
-      tags: [
-        "React Native",
-        "Expo",
-        "Zustand",
-        "Firebase",
-        "NativeWind",
-        "React Navigation",
-        "AsyncStorage",
-      ],
-      links: {
-        googlePlay:
-          "https://play.google.com/store/apps/details?id=com.justmate.thinkdo",
-        github: "https://github.com/justmatedev/thinkdo",
-      },
       type: "Mobile App",
-      bgColor: "bg-gray-900",
       logo: "/logo/thinkdoapp.svg",
       mockups: [
         "/mockup/thinkdoapp1.png",
         "/mockup/thinkdoapp2.png",
         "/mockup/thinkdoapp3.png",
       ],
+      tags: ["React Native", "Expo", "Zustand", "Firebase", "NativeWind"],
+      problem:
+        "Capturar ideias sem fricção, com dados seguros, sincronizados e disponíveis offline.",
+      solution:
+        "App React Native/Expo com estado leve (Zustand), Firebase, NativeWind e AsyncStorage para experiência offline-first.",
+      result: "App publicado na Google Play; código aberto no GitHub.",
+      links: {
+        googlePlay:
+          "https://play.google.com/store/apps/details?id=com.justmate.thinkdo",
+        github: "https://github.com/justmatedev/thinkdo",
+      },
     },
     {
       title: "Bonsare",
-      description:
-        "Uma plataforma focada em transformar a identidade de marcas e criativos através de estratégias de soluções visuais e conteúdos únicos. O projeto destaca-se pelo design premium, tipografia expressiva e uma experiência de usuário imersiva com foco em excelência estratégica.",
-      tags: [
-        "Next.js",
-        "React",
-        "TypeScript",
-        "Tailwind CSS",
-        "Zustand",
-        "Lucide React",
-      ],
+      type: "Web App",
+      logo: "/logo/bonsare.svg",
+      mockups: ["/mockup/bonsare.png"],
+      tags: ["Next.js", "React", "TypeScript", "Tailwind CSS", "Zustand"],
+      problem:
+        "Marcas e criativos precisam de presença web premium alinhada a estratégia visual e conteúdo.",
+      solution:
+        "Site Next.js/React/TypeScript com tipografia expressiva, design premium e UX imersiva.",
+      result: "Site live em bonsare.com.br.",
       links: {
         website: "https://bonsare.com.br",
       },
-      type: "Web App",
-      bgColor: "bg-gray-900",
-      logo: "/logo/bonsare.svg",
-      mockups: ["/mockup/bonsare.png"],
     },
     {
       title: "Zine",
-      description:
-        "O seu guia definitivo para descobrir filmes, séries e coleções curadas. Descubra os lançamentos mais populares, os filmes em alta e os clássicos mais bem avaliados do cinema e da TV mundial.",
+      type: "Web App",
+      logo: "/logo/zine.svg",
+      mockups: ["/mockup/zine.png"],
       tags: ["Next.js", "React", "Tailwind CSS", "TMDB API", "Firebase"],
+      problem:
+        "Descobrir filmes e séries relevantes exige curadoria além de listas genéricas.",
+      solution:
+        "Web app Next.js integrado à TMDB API, com coleções curadas e UI em Tailwind; Firebase no stack.",
+      result: "Produto live em zine-watch.vercel.app; repositório público.",
       links: {
         website: "https://zine-watch.vercel.app",
         github: "https://github.com/justmatedev/zine",
       },
-      type: "Web App",
-      bgColor: "bg-gray-900",
-      logo: "/logo/zine.svg",
-      mockups: ["/mockup/zine.png"],
     },
   ]
 
   return (
-    <section id="projects" aria-labelledby="projects-heading" className="py-20">
+    <section id="projects" aria-labelledby="projects-heading" className="py-24 md:py-32">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="text-center mb-16">
+        <div className="mb-20 md:mb-28 text-center md:text-left">
           <h2
             id="projects-heading"
-            className="text-3xl md:text-4xl font-bold mb-4"
+            className="text-3xl md:text-4xl font-bold mb-3 tracking-tight"
           >
             Projetos
           </h2>
-          <p className="text-gray-400">
-            Alguns dos trabalhos que desenvolvi recentemente.
+          <p className="text-gray-400 max-w-xl md:max-w-none">
+            Cases recentes — do problema ao resultado.
           </p>
         </div>
 
-        <div className="space-y-24">
+        <div className="space-y-28 md:space-y-36">
           {projects.map((project, index) => (
-            <div
+            <article
               key={project.title}
-              className={`flex flex-col ${index % 2 === 1 ? "md:flex-row-reverse" : "md:flex-row"} gap-12 items-center`}
+              className={`flex flex-col gap-10 md:gap-14 lg:gap-16 items-center ${
+                index % 2 === 1 ? "md:flex-row-reverse" : "md:flex-row"
+              }`}
             >
-              <div className="flex-1 w-full">
-                {project.mockups.length == 3 ? (
-                  <div className="grid grid-cols-3 gap-4">
+              <div className="flex-1 w-full min-w-0">
+                {project.mockups.length === 3 ? (
+                  <div className="grid grid-cols-3 items-end gap-2 sm:gap-3 md:gap-4">
                     {project.mockups.map((mockup, i) => (
                       <div
-                        key={i}
-                        className={`relative rounded-xl overflow-hidden shadow-lg border border-(--color-border) flex bg-(--color-surface-1) hover:-translate-y-2 hover:border-primary/30 transition-all ${i === 1 ? "scale-110 z-10 hover:z-20" : "scale-95 opacity-80 hover:opacity-100 hover:scale-100"}`}
+                        key={mockup}
+                        className={`relative overflow-hidden rounded-xl ${
+                          i === 1 ? "z-10 scale-105" : "scale-[0.92] opacity-70"
+                        }`}
                       >
                         <Image
                           src={mockup}
-                          alt={`Capturas de tela detalhadas do projeto ${project.title} - Visualização ${i + 1}`}
+                          alt={`Tela ${i + 1} do app ${project.title}`}
                           width={1080}
                           height={1920}
-                          className="w-full h-auto object-cover"
+                          className="h-auto w-full object-contain"
                         />
                       </div>
                     ))}
                   </div>
                 ) : (
-                  <div
-                    className={
-                      "rounded-xl overflow-hidden shadow-[0_40px_100px_-20px_rgba(0,0,0,1)] border border-(--color-border) flex bg-(--color-surface-1) hover:-translate-y-2 hover:border-primary/30 transition-all group"
-                    }
-                  >
+                  <div className="relative overflow-hidden rounded-xl">
                     <Image
                       src={project.mockups[0]}
-                      alt={`Apresentação visual da interface do projeto ${project.title}`}
+                      alt={`Interface do projeto ${project.title}`}
                       width={1920}
                       height={1080}
-                      className="w-full h-auto object-cover group-hover:scale-105 transition-transform duration-500"
+                      className="h-auto w-full object-contain"
                     />
                   </div>
                 )}
               </div>
 
-              <div className="flex-1 space-y-6">
-                <div className="flex items-center gap-4">
-                  <div className="w-20 h-20 rounded-xl flex items-center justify-center text-xs font-bold overflow-hidden relative">
+              <div className="flex-1 w-full space-y-7 md:space-y-8">
+                <div className="flex items-center gap-3">
+                  <div className="relative h-11 w-11 shrink-0 overflow-hidden">
                     <Image
                       src={project.logo}
-                      alt={`Logotipo oficial do projeto independente ${project.title}`}
+                      alt=""
                       fill
                       className="object-contain"
                     />
                   </div>
                   <div>
-                    <h3 className="text-2xl font-bold">{project.title}</h3>
-                    <span className="text-primary font-medium text-sm">
-                      {project.type}
-                    </span>
+                    <h3 className="text-2xl md:text-3xl font-bold tracking-tight">
+                      {project.title}
+                    </h3>
+                    <p className="text-sm font-medium text-primary">{project.type}</p>
                   </div>
                 </div>
 
-                <div className="flex flex-wrap gap-2">
-                  {project.tags.map((tag) => (
-                    <span
-                      key={tag}
-                      className="px-3 py-1 bg-(--color-surface-2) border border-(--color-border) rounded-full text-xs font-medium text-gray-300 shadow-sm"
-                    >
-                      #{tag}
-                    </span>
-                  ))}
-                </div>
-
-                <p className="text-gray-400 leading-relaxed">
-                  {project.description}
+                <p className="text-sm text-gray-500 tracking-wide">
+                  {project.tags.join(" · ")}
                 </p>
 
-                <div className="flex items-center gap-6 pt-4">
+                <div className="space-y-5 text-gray-400 leading-relaxed">
+                  <p>
+                    <span className="block text-xs font-medium uppercase tracking-[0.14em] text-gray-200 mb-1.5">
+                      Problema
+                    </span>
+                    {project.problem}
+                  </p>
+                  <p>
+                    <span className="block text-xs font-medium uppercase tracking-[0.14em] text-gray-200 mb-1.5">
+                      Solução
+                    </span>
+                    {project.solution}
+                  </p>
+                  <p>
+                    <span className="block text-xs font-medium uppercase tracking-[0.14em] text-gray-200 mb-1.5">
+                      Resultado
+                    </span>
+                    {project.result}
+                  </p>
+                </div>
+
+                <div className="flex flex-wrap items-center gap-x-6 gap-y-3 pt-1">
                   {project.links.googlePlay && (
                     <a
                       href={project.links.googlePlay}
                       target="_blank"
                       rel="noopener noreferrer"
-                      className="flex items-center gap-2 text-gray-300 hover:text-primary transition-colors font-medium"
+                      className="inline-flex items-center gap-2 text-sm font-medium text-gray-300 transition-colors hover:text-primary"
                     >
-                      <SiGoogleplay /> Google Play
+                      <SiGoogleplay aria-hidden /> Google Play
                     </a>
                   )}
                   {project.links.website && (
@@ -172,9 +189,9 @@ const Projects = () => {
                       href={project.links.website}
                       target="_blank"
                       rel="noopener noreferrer"
-                      className="flex items-center gap-2 text-gray-300 hover:text-primary transition-colors font-medium"
+                      className="inline-flex items-center gap-2 text-sm font-medium text-gray-300 transition-colors hover:text-primary"
                     >
-                      <FiExternalLink /> Website
+                      <FiExternalLink aria-hidden /> Website
                     </a>
                   )}
                   {project.links.github && (
@@ -182,14 +199,14 @@ const Projects = () => {
                       href={project.links.github}
                       target="_blank"
                       rel="noopener noreferrer"
-                      className="flex items-center gap-2 text-gray-300 hover:text-primary transition-colors font-medium"
+                      className="inline-flex items-center gap-2 text-sm font-medium text-gray-300 transition-colors hover:text-primary"
                     >
-                      <SiGithub /> GitHub
+                      <SiGithub aria-hidden /> GitHub
                     </a>
                   )}
                 </div>
               </div>
-            </div>
+            </article>
           ))}
         </div>
       </div>
