@@ -1,4 +1,5 @@
 import Link from "next/link"
+import Image from "next/image"
 
 const Hero = () => {
   return (
@@ -9,11 +10,12 @@ const Hero = () => {
     >
       <div className="mx-auto flex max-w-3xl flex-col items-center text-center">
         <div className="mb-6 md:mb-8">
-          <img
+          <Image
             src="/icon.svg"
             alt=""
             width={220}
             height={332}
+            priority
             className="h-auto w-40 object-contain sm:w-48 md:w-56"
           />
         </div>
@@ -29,11 +31,11 @@ const Hero = () => {
             Mateus Justino
           </p>
           <p className="mx-auto max-w-xl text-lg leading-snug text-gray-200 sm:text-xl md:text-2xl">
-            Apps e interfaces que as pessoas usam de verdade
+            Sites e apps que as pessoas usam de verdade
           </p>
           <p className="mx-auto max-w-lg text-base leading-relaxed text-gray-400">
-            Desenvolvimento JavaScript com React Native e React — do app na Play
-            Store ao site com identidade forte.
+            Desenvolvimento JavaScript com Next.js e React — do site com
+            identidade forte ao app na Play Store.
           </p>
         </div>
 

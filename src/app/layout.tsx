@@ -15,23 +15,23 @@ const googleSansCode = localFont({
 export const metadata: Metadata = {
   metadataBase: new URL("https://justmate.vercel.app"),
   title: {
-    default: "JustMate | Desenvolvedor JavaScript & React Native",
+    default: "JustMate | Desenvolvedor Next.js & React",
     template: "%s | JustMate",
   },
   description:
-    "Portfólio oficial de Mateus Justino (JustMate), Engenheiro de Software especializado em JavaScript, ReactJS, Next.js e React Native. Criando interfaces premium e aplicativos de alta performance.",
+    "Portfólio oficial de Mateus Justino (JustMate), Engenheiro de Software especializado em JavaScript, Next.js, React e React Native. Criando interfaces web premium e aplicativos de alta performance.",
   keywords: [
     "Mateus Justino",
     "JustMate",
-    "Desenvolvedor Backend",
-    "Freelancer",
     "Desenvolvedor Frontend",
-    "React Native",
+    "Desenvolvedor Web",
+    "Next.js",
     "ReactJS",
     "JavaScript",
     "TypeScript",
+    "React Native",
     "Desenvolvedor Mobile",
-    "Desenvolvedor Web",
+    "Freelancer",
     "Portfólio",
   ],
   authors: [{ name: "Mateus Justino", url: "https://github.com/justmatedev" }],
@@ -52,16 +52,16 @@ export const metadata: Metadata = {
     type: "website",
     locale: "pt_BR",
     url: "https://justmate.vercel.app/",
-    title: "JustMate | Desenvolvedor JavaScript & React Native",
+    title: "JustMate | Desenvolvedor Next.js & React",
     description:
-      "Portfólio de Mateus Justino (JustMate). Especialista em soluções web e mobile modernas com ecossistema JavaScript.",
+      "Portfólio de Mateus Justino (JustMate). Especialista em soluções web modernas com Next.js — e também mobile com React Native.",
     siteName: "JustMate Portfolio",
   },
   twitter: {
     card: "summary_large_image",
-    title: "JustMate | Desenvolvedor Frontend e Mobile",
+    title: "JustMate | Desenvolvedor Web e Frontend",
     description:
-      "Portfólio oficial. Transformando ideias em apps e sites de alta performance.",
+      "Portfólio oficial. Transformando ideias em sites e apps de alta performance.",
     creator: "@justmate",
   },
   alternates: {
@@ -81,9 +81,9 @@ const jsonLd = {
   knowsAbout: [
     "JavaScript",
     "TypeScript",
+    "Next.js",
     "React.js",
     "React Native",
-    "Next.js",
     "Node.js",
     "Tailwind CSS",
   ],

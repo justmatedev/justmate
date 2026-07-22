@@ -20,17 +20,17 @@ const About = () => {
           </h2>
           <div className="space-y-5 text-base leading-relaxed text-gray-400 sm:text-lg">
             <p>
-              Sou Mateus Justino — com foco em React Native para mobile e
-              React/Next.js para web.
+              Sou Mateus Justino — com foco em React/Next.js para web e React
+              Native para mobile.
             </p>
             <p className="border-l-2 border-primary/40 pl-5 text-gray-300">
               Gosto de transformar ideias em experiências limpas e utilizáveis:
-              apps que abrem rápido, interfaces com identidade e código que dá
+              interfaces com identidade, apps que abrem rápido e código que dá
               para evoluir.
             </p>
             <p>
-              Entre os trabalhos recentes estão o Thinkdo na Play Store e
-              projetos web como Bonsare e Zine.
+              Entre os trabalhos recentes estão projetos web como Bonsare e
+              Sinalverde, e o Thinkdo na Play Store.
             </p>
           </div>
           <div className="mt-10">

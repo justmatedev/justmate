@@ -21,6 +21,21 @@ type Project = {
 const Projects = () => {
   const projects: Project[] = [
     {
+      title: "Bonsare",
+      type: "Web App",
+      logo: "/logo/bonsare.svg",
+      mockups: ["/mockup/bonsare.png"],
+      tags: ["Next.js", "React", "TypeScript", "Tailwind CSS", "Zustand"],
+      problem:
+        "Marcas e criativos precisam de presença web premium alinhada a estratégia visual e conteúdo.",
+      solution:
+        "Site Next.js/React/TypeScript com tipografia expressiva, design premium e UX imersiva.",
+      result: "Site live em bonsare.com.br.",
+      links: {
+        website: "https://bonsare.com.br",
+      },
+    },
+    {
       title: "Thinkdo",
       type: "Mobile App",
       logo: "/logo/thinkdoapp.svg",
@@ -42,34 +57,26 @@ const Projects = () => {
       },
     },
     {
-      title: "Bonsare",
+      title: "Sinalverde",
       type: "Web App",
-      logo: "/logo/bonsare.svg",
-      mockups: ["/mockup/bonsare.png"],
-      tags: ["Next.js", "React", "TypeScript", "Tailwind CSS", "Zustand"],
+      logo: "/logo/sinalverde.svg",
+      mockups: ["/mockup/sinalverde.png"],
+      tags: [
+        "Next.js",
+        "TypeScript",
+        "Tailwind CSS",
+        "Prisma",
+        "PostgreSQL",
+        "Auth.js",
+      ],
       problem:
-        "Marcas e criativos precisam de presença web premium alinhada a estratégia visual e conteúdo.",
+        "Comparar preços de jogos em lojas oficiais no Brasil ainda exige várias abas.",
       solution:
-        "Site Next.js/React/TypeScript com tipografia expressiva, design premium e UX imersiva.",
-      result: "Site live em bonsare.com.br.",
+        "App Next.js com catálogo em BRL, melhor preço Steam vs Nuuvem, wishlist e alertas por e-mail.",
+      result: "Live em sinalverdebr.vercel.app; repositório público.",
       links: {
-        website: "https://bonsare.com.br",
-      },
-    },
-    {
-      title: "Zine",
-      type: "Web App",
-      logo: "/logo/zine.svg",
-      mockups: ["/mockup/zine.png"],
-      tags: ["Next.js", "React", "Tailwind CSS", "TMDB API", "Firebase"],
-      problem:
-        "Descobrir filmes e séries relevantes exige curadoria além de listas genéricas.",
-      solution:
-        "Web app Next.js integrado à TMDB API, com coleções curadas e UI em Tailwind; Firebase no stack.",
-      result: "Produto live em zine-watch.vercel.app; repositório público.",
-      links: {
-        website: "https://zine-watch.vercel.app",
-        github: "https://github.com/justmatedev/zine",
+        website: "https://sinalverdebr.vercel.app",
+        github: "https://github.com/justmatedev/sinalverde",
       },
     },
   ]

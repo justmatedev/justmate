@@ -12,6 +12,15 @@ const TechStack = () => {
       ],
     },
     {
+      title: "Desenvolvimento Web",
+      items: [
+        { name: "React", src: "/tech/react.svg" },
+        { name: "Next.js", src: "/tech/nextjs.svg" },
+        { name: "Tailwind CSS", src: "/tech/tailwindcss.svg" },
+        { name: "Zustand", src: "/tech/zustand.svg" },
+      ],
+    },
+    {
       title: "Desenvolvimento Mobile",
       items: [
         { name: "React Native", src: "/tech/reactnative.svg" },
@@ -19,15 +28,6 @@ const TechStack = () => {
         { name: "React Navigation", src: "/tech/reactnavigation.svg" },
         { name: "Firebase", src: "/tech/firebase.svg" },
         { name: "AsyncStorage", src: "/tech/asyncstorage.svg" },
-      ],
-    },
-    {
-      title: "Desenvolvimento Web",
-      items: [
-        { name: "React", src: "/tech/react.svg" },
-        { name: "Next.js", src: "/tech/nextjs.svg" },
-        { name: "Tailwind CSS", src: "/tech/tailwindcss.svg" },
-        { name: "Zustand", src: "/tech/zustand.svg" },
       ],
     },
     {
