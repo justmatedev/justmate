@@ -40,16 +40,22 @@ const Projects = () => {
       type: "Mobile App",
       logo: "/logo/thinkdoapp.svg",
       mockups: [
-        "/mockup/thinkdoapp1.png",
-        "/mockup/thinkdoapp2.png",
-        "/mockup/thinkdoapp3.png",
+        "/mockup/thinkdo1.png",
+        "/mockup/thinkdo2.png",
+        "/mockup/thinkdo3.png",
       ],
-      tags: ["React Native", "Expo", "Zustand", "Firebase", "NativeWind"],
+      tags: [
+        "Expo",
+        "React Native",
+        "Firebase",
+        "TypeScript",
+        "Android Widgets",
+      ],
       problem:
-        "Capturar ideias sem fricção, com dados seguros, sincronizados e disponíveis offline.",
+        "Ideias e pendências ficam espalhadas entre apps de notas e de tarefas.",
       solution:
-        "App React Native/Expo com estado leve (Zustand), Firebase, NativeWind e AsyncStorage para experiência offline-first.",
-      result: "App publicado na Google Play; código aberto no GitHub.",
+        "Inbox unificada (nota ↔ tarefa), sync Firestore em tempo real, lembretes locais e widgets Android.",
+      result: "App na Google Play; código aberto (MIT) no GitHub.",
       links: {
         googlePlay:
           "https://play.google.com/store/apps/details?id=com.justmate.thinkdo",
@@ -106,19 +112,23 @@ const Projects = () => {
             >
               <div className="flex-1 w-full min-w-0">
                 {project.mockups.length === 3 ? (
-                  <div className="grid grid-cols-3 items-end gap-2 sm:gap-3 md:gap-4">
+                  <div className="flex items-end justify-center gap-2 sm:gap-3 md:gap-4">
                     {project.mockups.map((mockup, i) => (
                       <div
                         key={mockup}
                         className={`relative overflow-hidden rounded-xl ${
-                          i === 1 ? "z-10 scale-105" : "scale-[0.92] opacity-70"
+                          i === 1
+                            ? "z-10 w-[36%] shrink-0"
+                            : "w-[30%] shrink-0 opacity-90"
                         }`}
                       >
                         <Image
                           src={mockup}
                           alt={`Tela ${i + 1} do app ${project.title}`}
                           width={1080}
-                          height={1920}
+                          height={2424}
+                          sizes="(max-width: 768px) 33vw, 15vw"
+                          quality={90}
                           className="h-auto w-full object-contain"
                         />
                       </div>
