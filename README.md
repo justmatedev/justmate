@@ -1,46 +1,67 @@
-# JustMate - Portfolio
+# JustMate — Portfólio
 
-Bem-vindo ao repositório do **JustMate**, o portfólio pessoal de Mateus Justino. Este projeto foi desenvolvido para apresentar minhas habilidades, projetos e trajetória como desenvolvedor JavaScript, com foco em React, React Native e tecnologias modernas da web.
+Portfólio pessoal de Mateus Justino, com projetos web e mobile, suas decisões técnicas e formas de contato.
 
-## 🚀 Tecnologias Utilizadas
+## Tecnologias
 
-Este projeto foi construído utilizando as tecnologias mais recentes e performáticas do ecossistema JavaScript:
+- Next.js 16 com App Router
+- React 19 e TypeScript
+- Tailwind CSS 4
+- React Icons
+- Google Sans Code hospedada localmente
 
-- **[Next.js 16](https://nextjs.org/)**: Framework React para produção, utilizando o App Router para roteamento e otimização.
-- **[Tailwind CSS v4](https://tailwindcss.com/)**: Framework de utilitários CSS para estilização rápida, responsiva e moderna.
-- **[TypeScript](https://www.typescriptlang.org/)**: Superset do JavaScript que adiciona tipagem estática para maior segurança e escalabilidade do código.
-- **[React Icons](https://react-icons.github.io/react-icons/)**: Biblioteca de ícones populares para React.
-- **SVGs Personalizados**: Ícones de tecnologias otimizados e consistentes visualmente.
+## Executar localmente
 
-## 📂 Estrutura do Projeto
+Use uma versão LTS do Node.js compatível com o projeto (mínimo 20.9) e npm.
 
-A organização de pastas segue as melhores práticas para projetos Next.js escaláveis:
-
+```bash
+npm ci
+npm run dev
 ```
+
+Abra http://localhost:3000. A aplicação atual não exige variáveis de ambiente nem credenciais para rodar.
+
+## Validação e produção
+
+```bash
+npm run lint
+npm run build
+npm start
+```
+
+O comando `start` serve o build de produção e deve ser executado após `build`.
+
+## Estrutura
+
+```text
 src/
-├── app/              # Rotas, layouts e estilos globais (App Router)
-│   ├── globals.css   # Estilos globais e configuração do Tailwind
-│   ├── layout.tsx    # Layout raiz da aplicação
-│   └── page.tsx      # Página inicial (Home)
-├── components/       # Componentes reutilizáveis da UI
-│   ├── Header.tsx    # Cabeçalho com navegação responsiva
-│   ├── Hero.tsx      # Seção de apresentação principal
-│   ├── TechStack.tsx # Exibição das tecnologias (com SVGs)
-│   ├── Projects.tsx  # Galeria de projetos com mockups
-│   └── Footer.tsx    # Rodapé com links sociais
+├── app/                     # Página inicial, metadados, sitemap e robots
+│   └── projetos/[slug]/      # Páginas individuais dos projetos
+├── components/              # Seções da página e componentes compartilhados
+├── data/projects.json       # Textos, links e imagens dos projetos
+└── fonts/                   # Fonte local e licença OFL
+public/
+└── projects/                # Capturas e símbolos dos projetos
 ```
 
-- **`public/`**: Arquivos estáticos como imagens, SVGs (`/tech`) e ícones.
+## Atualizar o conteúdo
 
-## ✨ Funcionalidades e Destaques
+Os projetos são definidos em `src/data/projects.json`. As imagens apontam para arquivos em `public/projects/`. Os slugs geram as páginas individuais e as entradas do sitemap durante o build.
 
-- **Design Premium e Minimalista**: Interface limpa com foco na experiência do usuário, utilizando uma paleta de cores escura e elegante (`#131313`, `#ffe15a`).
-- **Responsividade Total**: Layout adaptável para dispositivos móveis, tablets e desktops.
-- **Dark Mode Permanente**: Estilização focada em um tema escuro confortável e moderno.
-- **Tech Stack Visual**: Seção interativa que apresenta as tecnologias dominadas utilizando ícones SVG oficiais.
-- **Galeria de Projetos**: Apresentação detalhada de projetos com mockups de alta qualidade.
-- **Tipografia Personalizada**: Uso da fonte `Google Sans Code` para uma identidade visual única e técnica.
+A apresentação e os contatos ficam em `src/components/`. Ao mudar o domínio, atualize as URLs em `src/app/layout.tsx`, `src/app/robots.ts` e `src/app/sitemap.ts`.
 
-## 📝 Licença
+Os ícones da seção de tecnologias usam a coleção Simple Icons da biblioteca React Icons (`react-icons/si`).
 
-Este projeto é de uso pessoal para portfólio. Sinta-se à vontade para se inspirar!
+## Versionamento
+
+Mantenha no repositório o código, os arquivos estáticos usados pela aplicação, as configurações, `package.json`, `package-lock.json` e a licença da fonte em `src/fonts/OFL.txt`.
+
+Dependências instaladas, builds, caches, logs, arquivos `.env` e pastas locais de ferramentas e credenciais são ignorados pelo `.gitignore`.
+
+## Publicação
+
+O projeto inclui os comandos de build e execução para uma hospedagem compatível com Next.js, como a Vercel. O domínio configurado nos metadados é `https://justmate.vercel.app`.
+
+## Licença
+
+Este repositório ainda não define uma licença para o código e os materiais do portfólio. A licença da fonte Google Sans Code está em `src/fonts/OFL.txt`.

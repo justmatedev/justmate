@@ -25,6 +25,11 @@
 *.pem
 .superpowers/
 
+# local tooling and credentials
+/.agents/
+/.codex/
+/.aws/
+
 # debug
 npm-debug.log*
 yarn-debug.log*
