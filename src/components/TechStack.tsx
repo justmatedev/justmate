@@ -1,43 +1,51 @@
-import Image from "next/image"
+import type { IconType } from "react-icons"
+import {
+  SiAndroid,
+  SiCloudflare,
+  SiCloudflareworkers,
+  SiExpo,
+  SiFirebase,
+  SiNextdotjs,
+  SiPostgresql,
+  SiPrisma,
+  SiReact,
+  SiTailwindcss,
+  SiTypescript,
+} from "react-icons/si"
+
+type Technology = {
+  name: string
+  icon: IconType
+  color: string
+}
 
 const TechStack = () => {
-  const categories = [
+  const categories: { title: string; items: Technology[] }[] = [
     {
-      title: "Fundamentos",
+      title: "Web",
       items: [
-        { name: "JavaScript", src: "/tech/javascript.svg" },
-        { name: "TypeScript", src: "/tech/typescript.svg" },
-        { name: "HTML", src: "/tech/HTML5.svg" },
-        { name: "CSS", src: "/tech/CSS3.svg" },
+        { name: "React", icon: SiReact, color: "#61DAFB" },
+        { name: "Next.js", icon: SiNextdotjs, color: "#F3F4F6" },
+        { name: "Tailwind CSS", icon: SiTailwindcss, color: "#06B6D4" },
+        { name: "TypeScript", icon: SiTypescript, color: "#3178C6" },
       ],
     },
     {
-      title: "Desenvolvimento Web",
+      title: "Mobile",
       items: [
-        { name: "React", src: "/tech/react.svg" },
-        { name: "Next.js", src: "/tech/nextjs.svg" },
-        { name: "Tailwind CSS", src: "/tech/tailwindcss.svg" },
-        { name: "Zustand", src: "/tech/zustand.svg" },
+        { name: "React Native", icon: SiReact, color: "#61DAFB" },
+        { name: "Expo", icon: SiExpo, color: "#F3F4F6" },
+        { name: "Firebase", icon: SiFirebase, color: "#DD2C00" },
+        { name: "Widgets Android", icon: SiAndroid, color: "#3DDC84" },
       ],
     },
     {
-      title: "Desenvolvimento Mobile",
+      title: "Backend e dados",
       items: [
-        { name: "React Native", src: "/tech/reactnative.svg" },
-        { name: "Expo", src: "/tech/expo.svg" },
-        { name: "React Navigation", src: "/tech/reactnavigation.svg" },
-        { name: "Firebase", src: "/tech/firebase.svg" },
-        { name: "AsyncStorage", src: "/tech/asyncstorage.svg" },
-      ],
-    },
-    {
-      title: "Ferramentas",
-      items: [
-        { name: "GitHub", src: "/tech/github.svg" },
-        { name: "npm", src: "/tech/npm.svg" },
-        { name: "Cursor", src: "/tech/cursor.svg" },
-        { name: "Gemini", src: "/tech/gemini.svg" },
-        { name: "Antigravity", src: "/tech/antigravity.svg" },
+        { name: "Cloudflare Workers", icon: SiCloudflareworkers, color: "#F38020" },
+        { name: "PostgreSQL", icon: SiPostgresql, color: "#4169E1" },
+        { name: "Prisma", icon: SiPrisma, color: "#F3F4F6" },
+        { name: "Cloudflare D1", icon: SiCloudflare, color: "#F38020" },
       ],
     },
   ]
@@ -46,10 +54,10 @@ const TechStack = () => {
     <section
       id="tech"
       aria-labelledby="tech-heading"
-      className="py-24 md:py-32"
+      className="border-y border-(--color-border) py-16 md:py-20"
     >
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="mb-16 md:mb-20 text-center md:text-left">
+        <div className="mb-10 md:mb-12">
           <h2
             id="tech-heading"
             className="mb-3 text-3xl font-bold tracking-tight md:text-4xl"
@@ -57,29 +65,24 @@ const TechStack = () => {
             Tecnologias
           </h2>
           <p className="text-gray-400">
-            Ferramentas e tecnologias que utilizo para dar vida aos projetos.
+            Tecnologias que uso para construir aplicações web e mobile, do frontend às integrações.
           </p>
         </div>
 
-        <div className="divide-y divide-(--color-border)/60">
+        <div className="grid gap-10 md:grid-cols-3 lg:gap-16">
           {categories.map((category) => (
-            <div key={category.title} className="py-8 first:pt-0 last:pb-0 md:py-10">
-              <h3 className="mb-5 text-xs font-medium tracking-[0.2em] text-gray-500 uppercase">
+            <div key={category.title}>
+              <h3 className="mb-5 text-xs font-medium tracking-[0.12em] text-gray-400 uppercase">
                 {category.title}
               </h3>
-              <ul className="flex flex-wrap items-center gap-x-6 gap-y-4 md:gap-x-8 md:gap-y-5">
+              <ul className="grid gap-4">
                 {category.items.map((item) => (
                   <li key={item.name}>
                     <div className="group inline-flex items-center gap-2.5">
                       <span className="relative h-5 w-5 shrink-0 opacity-80 transition-opacity group-hover:opacity-100 md:h-6 md:w-6">
-                        <Image
-                          src={item.src}
-                          alt=""
-                          fill
-                          className="object-contain"
-                        />
+                        <item.icon aria-hidden className="h-full w-full" style={{ color: item.color }} />
                       </span>
-                      <span className="text-base font-medium text-gray-300 transition-colors group-hover:text-primary md:text-lg">
+                      <span className="text-base font-medium text-gray-300 transition-colors group-hover:text-primary">
                         {item.name}
                       </span>
                     </div>
