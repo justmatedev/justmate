@@ -1,0 +1,260 @@
+{
+  "sectionTitle": "Projetos",
+  "sectionDescription": "Aplicações para organizar finanças, registrar ideias e acompanhar preços de jogos.",
+  "projects": [
+    {
+      "order": 1,
+      "slug": "zelumi",
+      "title": "Zelumi",
+      "type": "Aplicação web e bot Telegram",
+      "development": "Interface web, API, persistência e integração com o Telegram.",
+      "headline": "Controle financeiro que começa por uma mensagem.",
+      "description": "Registre receitas e despesas pelo Telegram e acompanhe seus lançamentos, parcelas e categorias em um painel web.",
+      "tags": [
+        "Next.js",
+        "TypeScript",
+        "Cloudflare Workers",
+        "D1",
+        "Telegram Bot API"
+      ],
+      "problem": "Registrar os gastos do dia a dia exige interromper a rotina para preencher formulários.",
+      "solution": "Registro por mensagens no Telegram, com receitas, despesas e parcelas organizadas em um painel web.",
+      "result": "Bot e painel com regras financeiras compartilhadas, edição de registros e tratamento de mensagens repetidas.",
+      "logo": "/projects/zelumi/simbolo.svg",
+      "images": [
+        {
+          "src": "/projects/zelumi/painel-web.png",
+          "alt": "Painel do Zelumi com dados fictícios de receitas, despesas e parcelas.",
+          "kind": "screenshot",
+          "width": 1440,
+          "height": 1000
+        },
+        {
+          "src": "/projects/zelumi/registro-telegram.png",
+          "alt": "Ilustração de uma mensagem pão 10 e sua confirmação de despesa.",
+          "kind": "illustration",
+          "width": 675,
+          "height": 828
+        }
+      ],
+      "links": [
+        {
+          "label": "Acessar Zelumi",
+          "url": "https://usezelumi.vercel.app"
+        },
+        {
+          "label": "GitHub",
+          "url": "https://github.com/justmatedev/zelumi"
+        }
+      ],
+      "sections": [
+        {
+          "title": "Contexto",
+          "paragraphs": [
+            "Registrar um gasto pequeno pode exigir abrir um aplicativo e preencher vários campos. O Zelumi propõe uma entrada mais direta: enviar uma mensagem no Telegram e consultar os registros em um painel dedicado."
+          ]
+        },
+        {
+          "title": "Solução",
+          "paragraphs": [
+            "O bot interpreta mensagens como “pão 10”, pede informações quando o valor não está claro e permite editar ou desfazer o registro. No site, a pessoa acompanha receitas, despesas, parcelas e a distribuição dos gastos por categoria. Bot e painel consultam os dados da mesma conta Telegram."
+          ]
+        },
+        {
+          "title": "Desenvolvimento",
+          "paragraphs": [
+            "O projeto reúne frontend em Next.js, API em Cloudflare Workers e persistência em D1. Os pacotes compartilhados concentram as regras financeiras e a lógica das conversas, permitindo reutilizar esse comportamento no Worker e na execução local do bot."
+          ]
+        },
+        {
+          "title": "Decisão técnica: registrar uma vez, mesmo com reenvios",
+          "paragraphs": [
+            "Uma mensagem pode ser reenviada pela infraestrutura ou uma resposta pode falhar por problemas de rede. O processamento identifica atualizações repetidas para evitar novos lançamentos da mesma operação. Há também uma fila persistente de respostas. Isso separa a gravação financeira da entrega da confirmação: uma resposta eventualmente repetida não deve criar outra despesa."
+          ]
+        },
+        {
+          "title": "Decisão técnica: parcelas com total preservado",
+          "paragraphs": [
+            "O interpretador distingue o valor total de uma compra do valor por parcela. O cronograma distribui os centavos preservando o total e permite acompanhar a participação de cada parcela no respectivo mês. As regras financeiras ficam compartilhadas entre os pontos de entrada do produto."
+          ]
+        },
+        {
+          "title": "Limites",
+          "paragraphs": [
+            "O produto não representa saldo bancário nem fechamento de fatura. Áudio, pagamentos de fatura e transferências não fazem parte do escopo documentado. A edição de uma compra parcelada pode afetar meses anteriores."
+          ]
+        }
+      ]
+    },
+    {
+      "order": 2,
+      "slug": "thinkdo",
+      "title": "Thinkdo",
+      "type": "Aplicativo Android",
+      "development": "Aplicativo React Native, sincronização, widgets e lembretes Android.",
+      "headline": "Suas ideias e tarefas, no mesmo lugar.",
+      "description": "Capture notas, organize tarefas e configure lembretes em um aplicativo Android com sincronização na nuvem e widgets na tela inicial.",
+      "tags": [
+        "React Native",
+        "Expo",
+        "TypeScript",
+        "Firebase",
+        "Widgets Android"
+      ],
+      "problem": "Ideias e pendências ficam espalhadas entre aplicativos e podem se perder antes de serem organizadas.",
+      "solution": "Uma lista de notas e tarefas com captura rápida, lembretes locais, sincronização e widgets Android.",
+      "result": "Notas e tarefas com lembretes, widgets Android e recuperação de rascunhos no aparelho.",
+      "logo": "/projects/thinkdo/simbolo.svg",
+      "images": [
+        {
+          "src": "/projects/thinkdo/inbox.png",
+          "alt": "Inbox do Thinkdo com notas e tarefas na mesma lista.",
+          "kind": "screenshot",
+          "width": 1080,
+          "height": 2424
+        },
+        {
+          "src": "/projects/thinkdo/editor.png",
+          "alt": "Editor de uma anotação no Thinkdo.",
+          "kind": "screenshot",
+          "width": 1080,
+          "height": 2424
+        },
+        {
+          "src": "/projects/thinkdo/widgets.png",
+          "alt": "Widgets de captura e consulta do Thinkdo na tela inicial do Android.",
+          "kind": "screenshot",
+          "width": 1080,
+          "height": 2424
+        }
+      ],
+      "links": [
+        {
+          "label": "Google Play",
+          "url": "https://play.google.com/store/apps/details?id=com.justmate.thinkdo"
+        },
+        {
+          "label": "GitHub",
+          "url": "https://github.com/justmatedev/thinkdo"
+        }
+      ],
+      "sections": [
+        {
+          "title": "Contexto",
+          "paragraphs": [
+            "Uma ideia nem sempre nasce como uma tarefa, e uma tarefa pode precisar de anotações antes de ser executada. O Thinkdo reúne essas duas formas de registro em uma única lista, com captura rápida e organização posterior."
+          ]
+        },
+        {
+          "title": "Solução",
+          "paragraphs": [
+            "A pessoa cria notas e tarefas, transforma um tipo no outro, escolhe cores, reorganiza itens e encontra conteúdo pela busca. O editor salva as alterações automaticamente. Os lembretes podem ocorrer em uma data específica ou se repetir nos dias escolhidos.",
+            "Os widgets permitem iniciar uma captura e consultar a lista diretamente na tela inicial do Android. Temas claro e escuro acompanham a experiência no aplicativo e nos widgets."
+          ]
+        },
+        {
+          "title": "Desenvolvimento",
+          "paragraphs": [
+            "O aplicativo usa React Native com Expo, autenticação Firebase e sincronização pelo Firestore. As integrações nativas incluem Google Sign-In, notificações locais e widgets Android. Essas funcionalidades exigem uma compilação com os módulos nativos do projeto."
+          ]
+        },
+        {
+          "title": "Decisão técnica: rascunhos antes do envio",
+          "paragraphs": [
+            "O editor guarda um rascunho local separado por conta e item antes de enviar alterações à nuvem. Se o envio falhar, a pessoa pode recuperar ou descartar o texto ao retornar. A recuperação exige uma escolha explícita e avisa quando os campos também mudaram na nuvem. O estado visual distingue o texto salvo na nuvem de um rascunho mantido no aparelho."
+          ]
+        },
+        {
+          "title": "Decisão técnica: widgets e lembretes no aparelho",
+          "paragraphs": [
+            "Os widgets usam uma cópia local da lista para renderizar seu conteúdo, atualizada após mudanças no aplicativo. Os lembretes são agendados no aparelho a partir da configuração persistida e reconciliados quando o app é aberto. Assim, a experiência envolve o ciclo de vida do Android além das telas React."
+          ]
+        },
+        {
+          "title": "Limites",
+          "paragraphs": [
+            "A edição sem internet ainda não faz parte do escopo documentado. A cópia usada pelos widgets e os rascunhos locais não significam suporte completo à edição offline. Os lembretes são locais ao aparelho, e os rascunhos não substituem backup."
+          ]
+        }
+      ]
+    },
+    {
+      "order": 3,
+      "slug": "sinalverde",
+      "title": "Sinalverde",
+      "type": "Aplicação web",
+      "development": "Catálogo web, autenticação, integração com lojas e processamento de alertas.",
+      "headline": "Preços de jogos para acompanhar em um só lugar.",
+      "description": "Compare ofertas da Steam e da Nuuvem em reais, acompanhe o histórico de preços e organize uma wishlist com alertas por e-mail.",
+      "tags": [
+        "Next.js",
+        "TypeScript",
+        "PostgreSQL",
+        "Prisma",
+        "Auth.js",
+        "Vercel Cron"
+      ],
+      "problem": "Comparar preços de jogos em lojas oficiais e acompanhar novas ofertas exige consultar várias páginas.",
+      "solution": "Catálogo em reais com comparação Steam/Nuuvem, histórico de preços, wishlist e alertas por e-mail.",
+      "result": "Catálogo, wishlist e alertas que acompanham novas quedas de preço após a primeira promoção.",
+      "logo": "/projects/sinalverde/simbolo.svg",
+      "images": [
+        {
+          "src": "/projects/sinalverde/home.png",
+          "alt": "Página inicial do Sinalverde com destaques e catálogo; os preços pertencem à data da captura.",
+          "kind": "screenshot",
+          "width": 1440,
+          "height": 900
+        }
+      ],
+      "links": [
+        {
+          "label": "Acessar Sinalverde",
+          "url": "https://sinalverdebr.vercel.app"
+        },
+        {
+          "label": "GitHub",
+          "url": "https://github.com/justmatedev/sinalverde"
+        }
+      ],
+      "sections": [
+        {
+          "title": "Contexto",
+          "paragraphs": [
+            "Encontrar uma boa oferta em lojas oficiais exige comparar páginas e voltar a conferir os preços. O Sinalverde concentra a consulta em um catálogo em português e permite acompanhar os jogos que interessam à pessoa."
+          ]
+        },
+        {
+          "title": "Solução",
+          "paragraphs": [
+            "O catálogo oferece busca, filtros, ordenação e páginas de jogo com comparação entre Steam e Nuuvem. Depois de entrar com Google ou GitHub, a pessoa monta uma wishlist e escolhe quais jogos acompanhar por e-mail. O histórico de preços acrescenta contexto à oferta exibida."
+          ]
+        },
+        {
+          "title": "Desenvolvimento",
+          "paragraphs": [
+            "O projeto usa Next.js com TypeScript, PostgreSQL e Prisma. A arquitetura separa interface e rotas HTTP, regras do domínio e integrações com lojas, banco e envio de e-mails. Os serviços permanecem em um único deploy, com responsabilidades organizadas por módulo."
+          ]
+        },
+        {
+          "title": "Decisão técnica: um fluxo diário de atualização",
+          "paragraphs": [
+            "O processamento é dividido em sincronização do catálogo, atualização de preços em lote e envio dos alertas. Essa separação deixa explícita a dependência entre os dados importados, os preços coletados e a mensagem enviada. O catálogo não depende apenas de dados fixos preparados para a interface."
+          ]
+        },
+        {
+          "title": "Decisão técnica: avisar quando há uma nova oportunidade",
+          "paragraphs": [
+            "O alerta seleciona a melhor oferta entre as duas lojas e registra o preço notificado. Depois da primeira promoção, a regra documentada só envia novamente quando o preço cai. O objetivo é evitar mensagens repetidas com a mesma oferta."
+          ]
+        },
+        {
+          "title": "Limites",
+          "paragraphs": [
+            "Os preços dependem das lojas e das atualizações agendadas. Os valores nas imagens pertencem ao momento da captura; consulte a loja para confirmar a oferta antes de comprar."
+          ]
+        }
+      ]
+    }
+  ]
+}

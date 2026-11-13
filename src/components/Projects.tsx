@@ -1,234 +1,58 @@
-import { SiGithub, SiGoogleplay } from "react-icons/si"
-import { FiExternalLink } from "react-icons/fi"
 import Image from "next/image"
+import Link from "next/link"
+import { FiArrowRight } from "react-icons/fi"
+import content from "@/data/projects.json"
+import ProjectLinks from "@/components/ProjectLinks"
 
-type Project = {
-  title: string
-  type: string
-  logo: string
-  mockups: string[]
-  tags: string[]
-  problem: string
-  solution: string
-  result: string
-  links: {
-    googlePlay?: string
-    website?: string
-    github?: string
-  }
-}
-
-const Projects = () => {
-  const projects: Project[] = [
-    {
-      title: "Bonsare",
-      type: "Web App",
-      logo: "/logo/bonsare.svg",
-      mockups: ["/mockup/bonsare.png"],
-      tags: ["Next.js", "React", "TypeScript", "Tailwind CSS", "Zustand"],
-      problem:
-        "Marcas e criativos precisam de presença web premium alinhada a estratégia visual e conteúdo.",
-      solution:
-        "Site Next.js/React/TypeScript com tipografia expressiva, design premium e UX imersiva.",
-      result: "Site live em bonsare.com.br.",
-      links: {
-        website: "https://bonsare.com.br",
-      },
-    },
-    {
-      title: "Thinkdo",
-      type: "Mobile App",
-      logo: "/logo/thinkdoapp.svg",
-      mockups: [
-        "/mockup/thinkdo1.png",
-        "/mockup/thinkdo2.png",
-        "/mockup/thinkdo3.png",
-      ],
-      tags: [
-        "Expo",
-        "React Native",
-        "Firebase",
-        "TypeScript",
-        "Android Widgets",
-      ],
-      problem:
-        "Ideias e pendências ficam espalhadas entre apps de notas e de tarefas.",
-      solution:
-        "Inbox unificada (nota ↔ tarefa), sync Firestore em tempo real, lembretes locais e widgets Android.",
-      result: "App na Google Play; código aberto (MIT) no GitHub.",
-      links: {
-        googlePlay:
-          "https://play.google.com/store/apps/details?id=com.justmate.thinkdo",
-        github: "https://github.com/justmatedev/thinkdo",
-      },
-    },
-    {
-      title: "Sinalverde",
-      type: "Web App",
-      logo: "/logo/sinalverde.svg",
-      mockups: ["/mockup/sinalverde.png"],
-      tags: [
-        "Next.js",
-        "TypeScript",
-        "Tailwind CSS",
-        "Prisma",
-        "PostgreSQL",
-        "Auth.js",
-      ],
-      problem:
-        "Comparar preços de jogos em lojas oficiais no Brasil ainda exige várias abas.",
-      solution:
-        "App Next.js com catálogo em BRL, melhor preço Steam vs Nuuvem, wishlist e alertas por e-mail.",
-      result: "Live em sinalverdebr.vercel.app; repositório público.",
-      links: {
-        website: "https://sinalverdebr.vercel.app",
-        github: "https://github.com/justmatedev/sinalverde",
-      },
-    },
-  ]
-
+export default function Projects() {
   return (
     <section id="projects" aria-labelledby="projects-heading" className="py-24 md:py-32">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="mb-20 md:mb-28 text-center md:text-left">
-          <h2
-            id="projects-heading"
-            className="text-3xl md:text-4xl font-bold mb-3 tracking-tight"
-          >
-            Projetos
-          </h2>
-          <p className="text-gray-400 max-w-xl md:max-w-none">
-            Cases recentes — do problema ao resultado.
-          </p>
+      <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+        <div className="mb-14 md:mb-20">
+          <h2 id="projects-heading" className="mb-3 text-3xl font-bold tracking-tight md:text-4xl">{content.sectionTitle}</h2>
+          <p className="max-w-2xl text-gray-400">{content.sectionDescription}</p>
         </div>
-
-        <div className="space-y-28 md:space-y-36">
-          {projects.map((project, index) => (
-            <article
-              key={project.title}
-              className={`flex flex-col gap-10 md:gap-14 lg:gap-16 items-center ${
-                index % 2 === 1 ? "md:flex-row-reverse" : "md:flex-row"
-              }`}
-            >
-              <div className="flex-1 w-full min-w-0">
-                {project.mockups.length === 3 ? (
-                  <div className="flex items-end justify-center gap-2 sm:gap-3 md:gap-4">
-                    {project.mockups.map((mockup, i) => (
-                      <div
-                        key={mockup}
-                        className={`relative overflow-hidden rounded-xl ${
-                          i === 1
-                            ? "z-10 w-[36%] shrink-0"
-                            : "w-[30%] shrink-0 opacity-90"
-                        }`}
-                      >
-                        <Image
-                          src={mockup}
-                          alt={`Tela ${i + 1} do app ${project.title}`}
-                          width={1080}
-                          height={2424}
-                          sizes="(max-width: 768px) 33vw, 15vw"
-                          quality={90}
-                          className="h-auto w-full object-contain"
-                        />
+        <div className="space-y-20 md:space-y-28">
+          {content.projects.map((project, index) => {
+            const isMobile = project.slug === "thinkdo"
+            const screenshots = isMobile ? project.images : project.images.slice(0, 1)
+            return (
+              <article key={project.slug} aria-labelledby={`${project.slug}-heading`}
+                className={`flex flex-col items-center gap-10 md:gap-14 lg:gap-16 ${index % 2 === 1 ? "md:flex-row-reverse" : "md:flex-row"}`}>
+                <Link href={`/projetos/${project.slug}`} aria-label={`Ver projeto ${project.title}`}
+                  className="group order-2 block w-full min-w-0 flex-1 rounded-xl focus-visible:outline-2 focus-visible:outline-offset-8 focus-visible:outline-primary md:order-none">
+                  <div className={isMobile ? "flex items-end justify-center gap-2 sm:gap-3 md:gap-4" : "overflow-hidden rounded-xl"}>
+                    {screenshots.map((screenshot) => (
+                      <div key={screenshot.src} className={isMobile ? "min-w-0 flex-1 overflow-hidden rounded-xl" : "w-full"}>
+                        <Image src={screenshot.src} alt={screenshot.alt} width={screenshot.width} height={screenshot.height}
+                          sizes={isMobile ? "(max-width: 767px) 33vw, 16vw" : "(max-width: 767px) 100vw, 50vw"}
+                          className="h-auto w-full object-contain transition-transform duration-300 motion-safe:group-hover:scale-[1.02] motion-reduce:transition-none" />
                       </div>
                     ))}
                   </div>
-                ) : (
-                  <div className="relative overflow-hidden rounded-xl">
-                    <Image
-                      src={project.mockups[0]}
-                      alt={`Interface do projeto ${project.title}`}
-                      width={1920}
-                      height={1080}
-                      className="h-auto w-full object-contain"
-                    />
+                </Link>
+                <div className="order-1 w-full min-w-0 flex-1 space-y-5 md:order-none md:space-y-6">
+                  <div className="flex items-center gap-3">
+                    <div className="relative h-11 w-11 shrink-0"><Image src={project.logo} alt="" fill className="object-contain" sizes="44px" /></div>
+                    <div>
+                      <h3 id={`${project.slug}-heading`} className="text-2xl font-bold tracking-tight md:text-3xl">{project.title}</h3>
+                      <p className="text-sm font-medium text-primary">{project.type}</p>
+                    </div>
                   </div>
-                )}
-              </div>
-
-              <div className="flex-1 w-full space-y-7 md:space-y-8">
-                <div className="flex items-center gap-3">
-                  <div className="relative h-11 w-11 shrink-0 overflow-hidden">
-                    <Image
-                      src={project.logo}
-                      alt=""
-                      fill
-                      className="object-contain"
-                    />
+                  <div className="space-y-3">
+                    <p className="text-lg leading-relaxed text-gray-100">{project.headline}</p>
+                    <p className="leading-relaxed text-gray-400">{project.description}</p>
                   </div>
-                  <div>
-                    <h3 className="text-2xl md:text-3xl font-bold tracking-tight">
-                      {project.title}
-                    </h3>
-                    <p className="text-sm font-medium text-primary">{project.type}</p>
-                  </div>
+                  <p className="text-sm leading-relaxed text-gray-400">{project.tags.join(" · ")}</p>
+                  <ProjectLinks links={project.links}>
+                    <Link href={`/projetos/${project.slug}`} className="btn-primary w-full gap-2 lg:w-auto">Ver projeto <FiArrowRight aria-hidden /><span className="sr-only"> {project.title}</span></Link>
+                  </ProjectLinks>
                 </div>
-
-                <p className="text-sm text-gray-500 tracking-wide">
-                  {project.tags.join(" · ")}
-                </p>
-
-                <div className="space-y-5 text-gray-400 leading-relaxed">
-                  <p>
-                    <span className="block text-xs font-medium uppercase tracking-[0.14em] text-gray-200 mb-1.5">
-                      Problema
-                    </span>
-                    {project.problem}
-                  </p>
-                  <p>
-                    <span className="block text-xs font-medium uppercase tracking-[0.14em] text-gray-200 mb-1.5">
-                      Solução
-                    </span>
-                    {project.solution}
-                  </p>
-                  <p>
-                    <span className="block text-xs font-medium uppercase tracking-[0.14em] text-gray-200 mb-1.5">
-                      Resultado
-                    </span>
-                    {project.result}
-                  </p>
-                </div>
-
-                <div className="flex flex-wrap items-center gap-x-6 gap-y-3 pt-1">
-                  {project.links.googlePlay && (
-                    <a
-                      href={project.links.googlePlay}
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      className="inline-flex items-center gap-2 text-sm font-medium text-gray-300 transition-colors hover:text-primary"
-                    >
-                      <SiGoogleplay aria-hidden /> Google Play
-                    </a>
-                  )}
-                  {project.links.website && (
-                    <a
-                      href={project.links.website}
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      className="inline-flex items-center gap-2 text-sm font-medium text-gray-300 transition-colors hover:text-primary"
-                    >
-                      <FiExternalLink aria-hidden /> Website
-                    </a>
-                  )}
-                  {project.links.github && (
-                    <a
-                      href={project.links.github}
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      className="inline-flex items-center gap-2 text-sm font-medium text-gray-300 transition-colors hover:text-primary"
-                    >
-                      <SiGithub aria-hidden /> GitHub
-                    </a>
-                  )}
-                </div>
-              </div>
-            </article>
-          ))}
+              </article>
+            )
+          })}
         </div>
       </div>
     </section>
   )
 }
-
-export default Projects

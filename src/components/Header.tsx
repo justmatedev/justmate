@@ -9,11 +9,11 @@ const Header = () => {
   const [isOpen, setIsOpen] = useState(false)
 
   const navItems = [
-    { name: "Início", href: "#home" },
-    { name: "Projetos", href: "#projects" },
-    { name: "Sobre", href: "#about" },
-    { name: "Tecnologias", href: "#tech" },
-    { name: "Contato", href: "#contact" },
+    { name: "Início", href: "/#home" },
+    { name: "Projetos", href: "/#projects" },
+    { name: "Sobre", href: "/#about" },
+    { name: "Tecnologias", href: "/#tech" },
+    { name: "Contato", href: "/#contact" },
   ]
 
   return (
@@ -30,7 +30,7 @@ const Header = () => {
                   className="object-contain"
                 />
               </div>
-              <span className="text-xl font-bold tracking-tighter group-hover:text-primary transition-colors">
+              <span className="font-mono text-xl font-bold tracking-tighter group-hover:text-primary transition-colors">
                 JustMate
               </span>
             </Link>

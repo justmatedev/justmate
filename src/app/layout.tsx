@@ -19,7 +19,7 @@ export const metadata: Metadata = {
     template: "%s | JustMate",
   },
   description:
-    "Portfólio oficial de Mateus Justino (JustMate), Engenheiro de Software especializado em JavaScript, Next.js, React e React Native. Criando interfaces web premium e aplicativos de alta performance.",
+    "Mateus Justino (JustMate), desenvolvedor web e mobile. Conheça os projetos em Next.js, React e React Native, suas decisões técnicas e formas de contato.",
   keywords: [
     "Mateus Justino",
     "JustMate",
@@ -54,14 +54,14 @@ export const metadata: Metadata = {
     url: "https://justmate.vercel.app/",
     title: "JustMate | Desenvolvedor Next.js & React",
     description:
-      "Portfólio de Mateus Justino (JustMate). Especialista em soluções web modernas com Next.js — e também mobile com React Native.",
+      "Projetos web e mobile de Mateus Justino: interfaces, integrações e decisões técnicas com Next.js, React e React Native.",
     siteName: "JustMate Portfolio",
   },
   twitter: {
     card: "summary_large_image",
     title: "JustMate | Desenvolvedor Web e Frontend",
     description:
-      "Portfólio oficial. Transformando ideias em sites e apps de alta performance.",
+      "Conheça os projetos web e mobile de Mateus Justino e as decisões por trás de cada produto.",
     creator: "@justmate",
   },
   alternates: {
@@ -76,7 +76,7 @@ const jsonLd = {
   alternateName: "JustMate",
   url: "https://justmate.vercel.app/",
   image: "https://justmate.vercel.app/icon.svg",
-  jobTitle: "Software Engineer",
+  jobTitle: "Desenvolvedor web e mobile",
   sameAs: ["https://github.com/justmatedev", "mailto:justmatedev@gmail.com"],
   knowsAbout: [
     "JavaScript",
@@ -103,7 +103,7 @@ export default function RootLayout({
         />
       </head>
       <body
-        className={`${googleSansCode.variable} antialiased selection:bg-primary/30 selection:text-primary`}
+        className={`${googleSansCode.variable} font-sans antialiased selection:bg-primary/30 selection:text-primary`}
       >
         <div className="fixed inset-0 min-h-screen bg-(image:--background-image-glow) -z-50 pointer-events-none" />
         {children}

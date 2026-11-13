@@ -16,10 +16,11 @@ const Contact = () => {
             id="contact-heading"
             className="mb-5 text-3xl font-bold tracking-tight text-white sm:text-4xl md:text-5xl leading-[1.15]"
           >
-            Vamos construir algo juntos
+            Vamos conversar sobre uma vaga.
           </h2>
           <p className="mx-auto mb-10 max-w-lg text-lg leading-relaxed text-gray-400">
-            Projetos, freela ou conversa sobre uma oportunidade — me chama.
+            Busco oportunidades em desenvolvimento web e mobile. Se meu
+            trabalho fizer sentido para sua equipe, entre em contato.
           </p>
           <div className="flex flex-col items-center justify-center gap-5 sm:flex-row sm:gap-8">
             <a
