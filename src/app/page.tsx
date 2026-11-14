@@ -10,7 +10,7 @@ export default function Home() {
   return (
     <div className="min-h-screen font-sans">
       <Header />
-      <main>
+      <main id="main-content" tabIndex={-1}>
         <Hero />
         <Projects />
         <About />

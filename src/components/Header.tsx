@@ -2,11 +2,27 @@
 
 import Link from "next/link"
 import Image from "next/image"
-import { useState } from "react"
+import { useEffect, useRef, useState } from "react"
 import { HiMenu, HiX } from "react-icons/hi"
 
 const Header = () => {
   const [isOpen, setIsOpen] = useState(false)
+  const menuButtonRef = useRef<HTMLButtonElement>(null)
+
+  useEffect(() => {
+    if (!isOpen) return
+
+    const handleKeyDown = (event: KeyboardEvent) => {
+      if (event.key !== "Escape") return
+
+      event.preventDefault()
+      setIsOpen(false)
+      menuButtonRef.current?.focus()
+    }
+
+    document.addEventListener("keydown", handleKeyDown)
+    return () => document.removeEventListener("keydown", handleKeyDown)
+  }, [isOpen])
 
   const navItems = [
     { name: "Início", href: "/#home" },
@@ -54,9 +70,10 @@ const Header = () => {
           {/* Mobile Menu Button */}
           <div className="md:hidden">
             <button
+              ref={menuButtonRef}
               type="button"
               onClick={() => setIsOpen(!isOpen)}
-              className="p-2 rounded-md hover:bg-gray-800 transition-colors"
+              className="flex min-h-11 min-w-11 items-center justify-center p-2 rounded-md hover:bg-gray-800 transition-colors"
               aria-label={isOpen ? "Fechar menu" : "Abrir menu"}
               aria-expanded={isOpen}
               aria-controls="mobile-menu"
@@ -80,7 +97,7 @@ const Header = () => {
                 key={item.name}
                 href={item.href}
                 onClick={() => setIsOpen(false)}
-                className="block px-3 py-2 rounded-md text-base font-medium hover:bg-white/5 hover:text-primary transition-colors capitalize text-gray-300"
+                className="flex min-h-11 items-center px-3 py-2 rounded-md text-base font-medium hover:bg-white/5 hover:text-primary transition-colors capitalize text-gray-300"
               >
                 {item.name}
               </Link>

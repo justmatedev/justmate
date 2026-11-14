@@ -46,7 +46,7 @@ export default async function ProjectPage({ params }: Props) {
   return (
     <>
       <Header />
-      <main id="project-content" className="mx-auto max-w-7xl px-4 pb-24 pt-32 sm:px-6 md:pt-40 lg:px-8">
+      <main id="main-content" tabIndex={-1} className="mx-auto max-w-7xl px-4 pb-24 pt-32 sm:px-6 md:pt-40 lg:px-8">
         <Link href="/#projects" className="inline-flex min-h-11 items-center gap-2 text-sm text-gray-400 transition-colors hover:text-primary focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-primary"><FiArrowLeft aria-hidden /> Todos os projetos</Link>
         <section aria-labelledby="project-title" className="mt-10 motion-safe:animate-fade-up">
           <div className="grid gap-8 md:grid-cols-[1fr_2fr] md:gap-16">

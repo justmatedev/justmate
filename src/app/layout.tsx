@@ -105,6 +105,9 @@ export default function RootLayout({
       <body
         className={`${googleSansCode.variable} font-sans antialiased selection:bg-primary/30 selection:text-primary`}
       >
+        <a href="#main-content" className="skip-link">
+          Pular para o conteúdo
+        </a>
         <div className="fixed inset-0 min-h-screen bg-(image:--background-image-glow) -z-50 pointer-events-none" />
         {children}
       </body>
