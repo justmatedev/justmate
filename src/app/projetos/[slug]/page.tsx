@@ -40,8 +40,7 @@ export default async function ProjectPage({ params }: Props) {
   if (!project) notFound()
   const next = content.projects[(index + 1) % content.projects.length]
   const isMobile = project.slug === "thinkdo"
-  const heroImages = isMobile ? project.images : project.images.slice(0, 1)
-  const additionalImages = isMobile ? [] : project.images.slice(1)
+  const hasPairedImages = !isMobile && project.images.length === 2
 
   return (
     <>
@@ -64,28 +63,56 @@ export default async function ProjectPage({ params }: Props) {
               <ProjectLinks links={project.links} />
             </div>
           </div>
+          <div className="mt-10 max-w-2xl space-y-4 md:mt-12">
+            <h2 className="text-xl font-semibold tracking-tight md:text-2xl">A ideia do {project.title}</h2>
+            <p className="leading-relaxed text-gray-400">{project.problem}</p>
+          </div>
+        </section>
+        <section aria-labelledby="workflow-heading" className="mt-12 border-t border-(--color-border) pt-10 md:mt-16 md:pt-12">
+          <h2 id="workflow-heading" className="text-2xl font-semibold tracking-tight md:text-3xl">Como funciona</h2>
+          <ol className="mt-8 grid gap-8 md:grid-cols-3 md:gap-12">
+            {project.workflow.map((step, index) => (
+              <li key={step.title}>
+                <span className="font-mono text-sm text-primary" aria-hidden>{String(index + 1).padStart(2, "0")}</span>
+                <h3 className="mt-3 text-lg font-semibold tracking-tight">{step.title}</h3>
+                <p className="mt-3 leading-relaxed text-gray-400">{step.description}</p>
+              </li>
+            ))}
+          </ol>
           <p className="mt-10 text-sm text-gray-400 md:mt-12">Selecione uma imagem para abrir em tamanho original.</p>
-          <div className={`mt-4 ${isMobile ? "mx-auto flex max-w-4xl items-start justify-center gap-3 sm:gap-6" : "overflow-hidden rounded-xl border border-(--color-border)"}`}>
-            {heroImages.map((screenshot) => (
-              <a key={screenshot.src} href={screenshot.src} target="_blank" rel="noopener noreferrer"
-                aria-label={`${screenshot.alt} Abrir imagem em nova aba.`}
-                className={`block cursor-zoom-in focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-primary ${isMobile ? "w-1/3 min-w-0 overflow-hidden rounded-xl" : "w-full"}`}>
-                <Image src={screenshot.src} alt={screenshot.alt} width={screenshot.width} height={screenshot.height}
-                  sizes={isMobile ? "(max-width: 767px) 33vw, 280px" : "(max-width: 1279px) 100vw, 1216px"}
-                  preload className="h-auto w-full" />
-              </a>
+          <div className={`mt-5 ${isMobile
+            ? "mx-auto flex max-w-4xl items-start justify-center gap-3 sm:gap-6"
+            : hasPairedImages
+              ? "mx-auto grid max-w-5xl items-start gap-8 md:grid-cols-[minmax(0,1.47fr)_minmax(0,1fr)] md:gap-6"
+              : "mx-auto w-fit max-w-[min(100%,56rem)]"}`}>
+            {project.images.map((screenshot) => (
+              <div key={screenshot.src} className={isMobile ? "w-1/3 min-w-0" : "min-w-0"}>
+                {hasPairedImages && (
+                  <h3 className="mb-3 text-sm font-medium text-gray-300">
+                    {screenshot.kind === "illustration" ? "Registro pelo Telegram · ilustração" : "Painel web"}
+                  </h3>
+                )}
+                <a href={screenshot.src} target="_blank" rel="noopener noreferrer"
+                  aria-label={`${screenshot.alt} Abrir imagem em nova aba.`}
+                  className={`group block cursor-zoom-in overflow-hidden rounded-xl focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-primary ${isMobile ? "" : "border border-(--color-border)"}`}>
+                  <Image src={screenshot.src} alt={screenshot.alt} width={screenshot.width} height={screenshot.height}
+                    sizes={isMobile
+                      ? "(max-width: 767px) 33vw, 280px"
+                      : hasPairedImages
+                        ? "(max-width: 767px) calc(100vw - 32px), (max-width: 1071px) 60vw, 600px"
+                        : "(max-width: 927px) calc(100vw - 32px), 896px"}
+                    preload className={isMobile || hasPairedImages
+                      ? "h-auto w-full transition-transform duration-300 motion-safe:group-hover:scale-[1.02] motion-reduce:transition-none"
+                      : "h-auto max-h-[70svh] w-auto max-w-full object-contain"} />
+                </a>
+              </div>
             ))}
           </div>
         </section>
-        <section aria-label="Resumo do projeto" className="mt-12 border-t border-(--color-border) pt-8 md:mt-16">
-          <dl className="grid gap-8 md:grid-cols-3 md:gap-12">
-            <div><dt className="mb-3 font-mono text-sm font-medium text-primary">Problema</dt><dd className="leading-relaxed text-gray-300">{project.problem}</dd></div>
-            <div><dt className="mb-3 font-mono text-sm font-medium text-primary">Minha contribuição</dt><dd className="leading-relaxed text-gray-300">{project.development}</dd></div>
-            <div><dt className="mb-3 font-mono text-sm font-medium text-primary">Entrega</dt><dd className="leading-relaxed text-gray-300">{project.result}</dd></div>
-          </dl>
-        </section>
         <div className="mt-16 grid gap-12 border-t border-(--color-border) pt-12 md:mt-24 md:grid-cols-[1fr_2fr] md:gap-16 md:pt-16">
-          <aside aria-label="Tecnologias do projeto">
+          <aside aria-label="Minha contribuição e tecnologias">
+            <h2 className="mb-5 text-sm font-medium text-gray-200">Minha contribuição</h2>
+            <p className="mb-10 text-sm leading-relaxed text-gray-400">{project.development}</p>
             <h2 className="mb-5 text-sm font-medium text-gray-200">Tecnologias</h2>
             <ul className="flex flex-wrap gap-x-5 gap-y-3 text-sm leading-relaxed text-gray-400 md:flex-col">
               {project.tags.map((tag) => <li key={tag}>{tag}</li>)}
@@ -96,14 +123,6 @@ export default async function ProjectPage({ params }: Props) {
               <section key={section.title} aria-label={section.title}>
                 <h2 className="mb-5 text-xl font-semibold tracking-tight md:text-2xl">{section.title}</h2>
                 <div className="space-y-4 leading-relaxed text-gray-400">{section.paragraphs.map((paragraph) => <p key={paragraph}>{paragraph}</p>)}</div>
-              </section>
-            ))}
-            {additionalImages.map((screenshot) => (
-              <section key={screenshot.src} aria-label="Imagem complementar">
-                {screenshot.kind === "illustration" && <h2 className="mb-5 text-xl font-semibold tracking-tight md:text-2xl">Exemplo ilustrativo de registro</h2>}
-                <a href={screenshot.src} target="_blank" rel="noopener noreferrer" aria-label={`${screenshot.alt} Abrir imagem em nova aba.`} className="block cursor-zoom-in rounded-xl focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-primary">
-                  <Image src={screenshot.src} alt={screenshot.alt} width={screenshot.width} height={screenshot.height} sizes="(max-width: 767px) 100vw, 640px" className="h-auto w-full rounded-xl" />
-                </a>
               </section>
             ))}
           </div>

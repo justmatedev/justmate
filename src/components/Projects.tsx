@@ -21,7 +21,7 @@ export default function Projects() {
                 className={`flex flex-col items-center gap-10 md:gap-14 lg:gap-16 ${index % 2 === 1 ? "md:flex-row-reverse" : "md:flex-row"}`}>
                 <Link href={`/projetos/${project.slug}`} aria-label={`Ver projeto ${project.title}`}
                   className="group order-2 block w-full min-w-0 flex-1 rounded-xl focus-visible:outline-2 focus-visible:outline-offset-8 focus-visible:outline-primary md:order-none">
-                  <div className={isMobile ? "flex items-end justify-center gap-2 sm:gap-3 md:gap-4" : "overflow-hidden rounded-xl"}>
+                  <div className={isMobile ? "flex items-end justify-center gap-2 sm:gap-3 md:gap-4" : `overflow-hidden rounded-xl ${project.slug === "zelumi" ? "border border-(--color-border)" : ""}`}>
                     {screenshots.map((screenshot) => (
                       <div key={screenshot.src} className={isMobile ? "min-w-0 flex-1 overflow-hidden rounded-xl" : "w-full"}>
                         <Image src={screenshot.src} alt={screenshot.alt} width={screenshot.width} height={screenshot.height}

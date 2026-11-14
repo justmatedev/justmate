@@ -17,21 +17,19 @@
         "D1",
         "Telegram Bot API"
       ],
-      "problem": "Registrar os gastos do dia a dia exige interromper a rotina para preencher formulários.",
-      "solution": "Registro por mensagens no Telegram, com receitas, despesas e parcelas organizadas em um painel web.",
-      "result": "Bot e painel com regras financeiras compartilhadas, edição de registros e tratamento de mensagens repetidas.",
+      "problem": "Registrar um gasto pequeno pode exigir abrir um aplicativo e preencher vários campos. A ideia do Zelumi é permitir esse registro durante uma conversa no Telegram, deixando a consulta e a organização para o painel web.",
       "logo": "/projects/zelumi/simbolo.svg",
       "images": [
         {
-          "src": "/projects/zelumi/painel-web.png",
-          "alt": "Painel do Zelumi com dados fictícios de receitas, despesas e parcelas.",
+          "src": "/projects/zelumi/painel-web-dark.png",
+          "alt": "Painel do Zelumi no tema escuro com dados fictícios de receitas, despesas e parcelas.",
           "kind": "screenshot",
           "width": 1440,
-          "height": 1000
+          "height": 1200
         },
         {
-          "src": "/projects/zelumi/registro-telegram.png",
-          "alt": "Ilustração de uma mensagem pão 10 e sua confirmação de despesa.",
+          "src": "/projects/zelumi/registro-telegram-dark.png",
+          "alt": "Ilustração no tema escuro de uma mensagem pão 10 e sua confirmação de despesa.",
           "kind": "illustration",
           "width": 675,
           "height": 828
@@ -49,19 +47,7 @@
       ],
       "sections": [
         {
-          "title": "Contexto",
-          "paragraphs": [
-            "Registrar um gasto pequeno pode exigir abrir um aplicativo e preencher vários campos. O Zelumi propõe uma entrada mais direta: enviar uma mensagem no Telegram e consultar os registros em um painel dedicado."
-          ]
-        },
-        {
-          "title": "Solução",
-          "paragraphs": [
-            "O bot interpreta mensagens como “pão 10”, pede informações quando o valor não está claro e permite editar ou desfazer o registro. No site, a pessoa acompanha receitas, despesas, parcelas e a distribuição dos gastos por categoria. Bot e painel consultam os dados da mesma conta Telegram."
-          ]
-        },
-        {
-          "title": "Desenvolvimento",
+          "title": "Como desenvolvi",
           "paragraphs": [
             "O projeto reúne frontend em Next.js, API em Cloudflare Workers e persistência em D1. Os pacotes compartilhados concentram as regras financeiras e a lógica das conversas, permitindo reutilizar esse comportamento no Worker e na execução local do bot."
           ]
@@ -79,10 +65,24 @@
           ]
         },
         {
-          "title": "Limites",
+          "title": "Limites atuais",
           "paragraphs": [
             "O produto não representa saldo bancário nem fechamento de fatura. Áudio, pagamentos de fatura e transferências não fazem parte do escopo documentado. A edição de uma compra parcelada pode afetar meses anteriores."
           ]
+        }
+      ],
+      "workflow": [
+        {
+          "title": "Envie uma mensagem",
+          "description": "Registre uma receita ou despesa no Telegram, com mensagens como “pão 10”. Se o valor não estiver claro, o bot pede mais informações."
+        },
+        {
+          "title": "Confira o lançamento",
+          "description": "Consulte a confirmação e, quando precisar, edite ou desfaça o registro pela conversa."
+        },
+        {
+          "title": "Acompanhe no painel",
+          "description": "Veja os lançamentos da mesma conta no painel web, com receitas, despesas, parcelas e distribuição por categoria."
         }
       ]
     },
@@ -101,9 +101,7 @@
         "Firebase",
         "Widgets Android"
       ],
-      "problem": "Ideias e pendências ficam espalhadas entre aplicativos e podem se perder antes de serem organizadas.",
-      "solution": "Uma lista de notas e tarefas com captura rápida, lembretes locais, sincronização e widgets Android.",
-      "result": "Notas e tarefas com lembretes, widgets Android e recuperação de rascunhos no aparelho.",
+      "problem": "Uma ideia nem sempre nasce como uma tarefa, e uma tarefa pode precisar de anotações antes de ser executada. O Thinkdo reúne as duas formas de registro em uma lista para capturar primeiro e organizar depois.",
       "logo": "/projects/thinkdo/simbolo.svg",
       "images": [
         {
@@ -140,20 +138,7 @@
       ],
       "sections": [
         {
-          "title": "Contexto",
-          "paragraphs": [
-            "Uma ideia nem sempre nasce como uma tarefa, e uma tarefa pode precisar de anotações antes de ser executada. O Thinkdo reúne essas duas formas de registro em uma única lista, com captura rápida e organização posterior."
-          ]
-        },
-        {
-          "title": "Solução",
-          "paragraphs": [
-            "A pessoa cria notas e tarefas, transforma um tipo no outro, escolhe cores, reorganiza itens e encontra conteúdo pela busca. O editor salva as alterações automaticamente. Os lembretes podem ocorrer em uma data específica ou se repetir nos dias escolhidos.",
-            "Os widgets permitem iniciar uma captura e consultar a lista diretamente na tela inicial do Android. Temas claro e escuro acompanham a experiência no aplicativo e nos widgets."
-          ]
-        },
-        {
-          "title": "Desenvolvimento",
+          "title": "Como desenvolvi",
           "paragraphs": [
             "O aplicativo usa React Native com Expo, autenticação Firebase e sincronização pelo Firestore. As integrações nativas incluem Google Sign-In, notificações locais e widgets Android. Essas funcionalidades exigem uma compilação com os módulos nativos do projeto."
           ]
@@ -171,10 +156,24 @@
           ]
         },
         {
-          "title": "Limites",
+          "title": "Limites atuais",
           "paragraphs": [
             "A edição sem internet ainda não faz parte do escopo documentado. A cópia usada pelos widgets e os rascunhos locais não significam suporte completo à edição offline. Os lembretes são locais ao aparelho, e os rascunhos não substituem backup."
           ]
+        }
+      ],
+      "workflow": [
+        {
+          "title": "Capture uma ideia",
+          "description": "Crie uma nota ou tarefa no aplicativo. Os widgets também permitem iniciar uma captura direto da tela inicial do Android."
+        },
+        {
+          "title": "Organize o que fazer",
+          "description": "Edite o conteúdo, transforme notas em tarefas ou tarefas em notas e use cores, busca e reordenação para organizar sua lista."
+        },
+        {
+          "title": "Acompanhe suas pendências",
+          "description": "Configure lembretes para uma data ou para os dias escolhidos e consulte a lista pelo aplicativo ou pelos widgets."
         }
       ]
     },
@@ -184,7 +183,7 @@
       "title": "Sinalverde",
       "type": "Aplicação web",
       "development": "Catálogo web, autenticação, integração com lojas e processamento de alertas.",
-      "headline": "Preços de jogos para acompanhar em um só lugar.",
+      "headline": "Compare preços de jogos e acompanhe ofertas.",
       "description": "Compare ofertas da Steam e da Nuuvem em reais, acompanhe o histórico de preços e organize uma wishlist com alertas por e-mail.",
       "tags": [
         "Next.js",
@@ -194,9 +193,7 @@
         "Auth.js",
         "Vercel Cron"
       ],
-      "problem": "Comparar preços de jogos em lojas oficiais e acompanhar novas ofertas exige consultar várias páginas.",
-      "solution": "Catálogo em reais com comparação Steam/Nuuvem, histórico de preços, wishlist e alertas por e-mail.",
-      "result": "Catálogo, wishlist e alertas que acompanham novas quedas de preço após a primeira promoção.",
+      "problem": "Comparar ofertas e acompanhar mudanças de preço exige consultar várias páginas repetidamente. O Sinalverde reúne essa consulta em um catálogo em português e permite acompanhar os jogos de interesse.",
       "logo": "/projects/sinalverde/simbolo.svg",
       "images": [
         {
@@ -219,19 +216,7 @@
       ],
       "sections": [
         {
-          "title": "Contexto",
-          "paragraphs": [
-            "Encontrar uma boa oferta em lojas oficiais exige comparar páginas e voltar a conferir os preços. O Sinalverde concentra a consulta em um catálogo em português e permite acompanhar os jogos que interessam à pessoa."
-          ]
-        },
-        {
-          "title": "Solução",
-          "paragraphs": [
-            "O catálogo oferece busca, filtros, ordenação e páginas de jogo com comparação entre Steam e Nuuvem. Depois de entrar com Google ou GitHub, a pessoa monta uma wishlist e escolhe quais jogos acompanhar por e-mail. O histórico de preços acrescenta contexto à oferta exibida."
-          ]
-        },
-        {
-          "title": "Desenvolvimento",
+          "title": "Como desenvolvi",
           "paragraphs": [
             "O projeto usa Next.js com TypeScript, PostgreSQL e Prisma. A arquitetura separa interface e rotas HTTP, regras do domínio e integrações com lojas, banco e envio de e-mails. Os serviços permanecem em um único deploy, com responsabilidades organizadas por módulo."
           ]
@@ -249,10 +234,24 @@
           ]
         },
         {
-          "title": "Limites",
+          "title": "Limites atuais",
           "paragraphs": [
             "Os preços dependem das lojas e das atualizações agendadas. Os valores nas imagens pertencem ao momento da captura; consulte a loja para confirmar a oferta antes de comprar."
           ]
+        }
+      ],
+      "workflow": [
+        {
+          "title": "Encontre um jogo",
+          "description": "Busque no catálogo e use filtros e ordenação para encontrar os jogos que interessam."
+        },
+        {
+          "title": "Compare as ofertas",
+          "description": "Consulte os preços em reais na Steam e na Nuuvem e veja o histórico para dar contexto à oferta atual."
+        },
+        {
+          "title": "Acompanhe pela wishlist",
+          "description": "Entre com Google ou GitHub, salve seus jogos e escolha quais acompanhar com alertas de ofertas por e-mail."
         }
       ]
     }
