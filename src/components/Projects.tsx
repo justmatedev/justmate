@@ -6,7 +6,7 @@ import ProjectLinks from "@/components/ProjectLinks"
 
 export default function Projects() {
   return (
-    <section id="projects" aria-labelledby="projects-heading" className="py-24 md:py-32">
+    <section id="projects" aria-labelledby="projects-heading" className="-scroll-mt-24 py-24 md:-scroll-mt-32 md:py-32">
       <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
         <div className="mb-14 md:mb-20">
           <h2 id="projects-heading" className="mb-3 text-3xl font-bold tracking-tight md:text-4xl">{content.sectionTitle}</h2>

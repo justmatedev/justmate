@@ -54,7 +54,7 @@ const TechStack = () => {
     <section
       id="tech"
       aria-labelledby="tech-heading"
-      className="border-y border-(--color-border) py-16 md:py-20"
+      className="-scroll-mt-16 border-y border-(--color-border) py-16 md:-scroll-mt-20 md:py-20"
     >
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="mb-10 md:mb-12">

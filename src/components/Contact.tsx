@@ -5,7 +5,7 @@ const Contact = () => {
     <section
       id="contact"
       aria-labelledby="contact-heading"
-      className="section-glow py-24 md:py-32"
+      className="section-glow -scroll-mt-24 py-24 md:-scroll-mt-32 md:py-32"
     >
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="mx-auto max-w-2xl text-center">
